@@ -11,6 +11,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { extendDefaultPlugins } = require('svgo');
 const webpack = require('webpack')
+const WebpackBundleAnalyzer = require("webpack-bundle-analyzer")
+    .BundleAnalyzerPlugin;
+//Is it in development mod
+let devMode = process.env.devMode || true;
+
 
 const environment = require('./configuration/environment');
 
@@ -80,6 +85,7 @@ module.exports = {
         ],
     },
     plugins: [
+        /*new WebpackBundleAnalyzer(), */
 
         new webpack.ProvidePlugin({
             THREE: 'three'
