@@ -1,0 +1,177 @@
+body {
+    /* make the body fits our viewport */
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    /* hide scrollbars */
+    overflow: hidden;
+    padding: 0;
+    background-color: #000;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-Black.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-BlackItalic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-ExtraBold.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-ExtraBoldItalic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-Bold.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-BoldItalic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-SemiBold.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-SemiBoldItalic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-Medium.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-MediumItalic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-Italic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-Light.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'OpenSauceOne';
+    src: url('../fonts/OpenSauceOne-LightItalic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 300;
+}
+
+#canvas {
+    /* make the canvas wrapper fits the window */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: OpenSauceOne, sans-serif;
+    font-size: 5rem;
+    line-height: 5rem;
+    position: absolute;
+    color: #fff;
+    bottom: 0px;
+}
+
+section.content-wrapper {
+    padding: 50px;
+    height: 100%
+}
+
+.plane {
+    /* define the size of your plane */
+    width: 100%;
+    /* max-width: 1400px; */
+    /* height: 80vh; */
+    height: 100%;
+    position: relative;
+    /* top: 10vh; */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.plane img {
+    /* hide the img element */
+    display: none;
+}
+
+.plane::after {
+    content: "";
+    position: absolute;
+    width: 200vw;
+    height: 200vh;
+    left: -50%;
+    top: -50%;
+    opacity: 0.5;
+    background-image: url(../images/noise2.png);
+}
+
+
+/*** in case of error show the image ***/
+
+.no-curtains .plane {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-curtains .plane img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+}

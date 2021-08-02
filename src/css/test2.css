@@ -27,6 +27,12 @@ body {
     --color-bg: #c7c7c7;
 }
 
+canvas {
+    width: 100% !important;
+    overflow-x: hidden;
+    height: 100% !important;
+}
+
 
 /* Page Loader */
 
@@ -293,12 +299,7 @@ main::before {
     }
 }
 
-.webgl {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
+.webgl {}
 
 
 /* Style class utilities */

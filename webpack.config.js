@@ -35,7 +35,8 @@ module.exports = {
         app: path.resolve(environment.paths.source, 'js', 'index.js'),
         test0: path.resolve(environment.paths.source, 'js', 'test0.js'),
         test1: path.resolve(environment.paths.source, 'js', 'test1.js'),
-        test2: path.resolve(environment.paths.source, 'js', 'test2.js')
+        test2: path.resolve(environment.paths.source, 'js', 'test2.js'),
+        test3: path.resolve(environment.paths.source, 'js', 'test3.js')
     },
     output: {
         filename: 'js/[name].js',
@@ -73,7 +74,10 @@ module.exports = {
                     },
                 }, ],
             },
-
+            {
+                test: /\.json$/,
+                type: 'asset/inline',
+            },
             {
                 test: /\.(glsl)$/,
                 use: [{
@@ -87,6 +91,7 @@ module.exports = {
             },
         ],
     },
+
     plugins: [
         /*new WebpackBundleAnalyzer(), */
 
@@ -124,13 +129,32 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [{
-                from: path.resolve(environment.paths.source, 'images'),
-                to: path.resolve(environment.paths.output, 'images'),
-                toType: 'dir',
-                globOptions: {
-                    ignore: ['*.DS_Store', 'Thumbs.db'],
+                    from: path.resolve(environment.paths.source, 'images'),
+                    to: path.resolve(environment.paths.output, 'images'),
+                    toType: 'dir',
+                    globOptions: {
+                        ignore: ['*.DS_Store', 'Thumbs.db'],
+                    },
                 },
-            }, ],
+                {
+                    from: path.resolve(environment.paths.source, 'json'),
+                    to: path.resolve(environment.paths.output, 'json'),
+                    toType: 'dir',
+                    globOptions: {
+                        ignore: ['*.DS_Store', 'Thumbs.db'],
+                    },
+
+                },
+                {
+                    from: path.resolve(environment.paths.source, 'fonts'),
+                    to: path.resolve(environment.paths.output, 'fonts'),
+                    toType: 'dir',
+                    globOptions: {
+                        ignore: ['*.DS_Store', 'Thumbs.db'],
+                    },
+
+                },
+            ],
         }),
     ].concat(htmlPluginEntries),
     target: 'web',
