@@ -24,7 +24,7 @@
             </section>
 
 			<!-- image that will be used as a texture by our plane -->
-			<img src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1650&q=80" crossorigin="anonymous"/>
+			<img src="images/photo1.jpeg" crossorigin="anonymous"/>
       <!--img src = "https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/12/Gradient_builder_2.jpg?auto=format&q=60&fit=max&w=930"-->
       
 		</div> 
@@ -37,6 +37,7 @@
 			// those are the mandatory attributes that the lib sets
 			attribute vec3 aVertexPosition;
 			attribute vec2 aTextureCoord;
+            
 
 			// those are mandatory uniforms that the lib sets and that contain our model view and projection matrix
 			uniform mat4 uMVMatrix;
@@ -89,14 +90,15 @@
 				const float PI = 3.141592;
 
 				textureCoord.x += (
-					sin(textureCoord.x * 10.0 + ((uTime * (PI / 3.0)) * 0.031))
-					+ sin(textureCoord.y * 10.0 + ((uTime * (PI / 2.489)) * 0.017))
-					) * 0.0055;
+					sin(textureCoord.x * 2.0 + ((uTime * (PI / 70.0)) * 0.017))
+					+ sin(textureCoord.y * 2.0 + ((uTime * (PI / 70.0)) * 0.017))
+					) * .0355;
 
 				textureCoord.y += (
-					sin(textureCoord.y * 20.0 + ((uTime * (PI / 2.023)) * 0.023))
-					+ sin(textureCoord.x * 20.0 + ((uTime * (PI / 3.1254)) * 0.037))
-					) * 0.0075;
+					sin(textureCoord.y * 2.0 + ((uTime * (PI / 70.3)) * 0.17))
+					+ sin(textureCoord.x * 2.0 + ((uTime * (PI / 70.0)) * 0.017))
+					) * 0.0375;
+
 
 				gl_FragColor = texture2D(uSampler0, textureCoord);
 			}

@@ -36,7 +36,8 @@ module.exports = {
         test0: path.resolve(environment.paths.source, 'js', 'test0.js'),
         test1: path.resolve(environment.paths.source, 'js', 'test1.js'),
         test2: path.resolve(environment.paths.source, 'js', 'test2.js'),
-        test3: path.resolve(environment.paths.source, 'js', 'test3.js')
+        test3: path.resolve(environment.paths.source, 'js', 'test3.js'),
+        test4: path.resolve(environment.paths.source, 'js', 'test4.js')
     },
     output: {
         filename: 'js/[name].js',

@@ -60,7 +60,7 @@ class Box {
         this.geom = new BoxGeometry(1.2, 1.2, 1.2);
         this.rotationX = 0;
         this.rotationY = 0;
-        this.rotationZ = rot * (Math.random() - 0.5);
+        this.rotationZ = 0
     }
 }
 /*
@@ -89,34 +89,34 @@ class TimoText {
 class Cone {
     constructor() {
         this.geom = new THREE.ConeBufferGeometry(0.6, 1.2, 32);
-        this.rotationX = Math.random();
-        this.rotationY = Math.random();
-        this.rotationZ = radians(-180) + rot * (Math.random() - 0.5);
+        this.rotationX = 0 //Math.random();
+        this.rotationY = 0 //Math.random();
+        this.rotationZ = radians(-180) //+ rot * (Math.random() - 0.5);
     }
 }
 
 class Icosahedron {
     constructor() {
         this.geom = new THREE.IcosahedronBufferGeometry(0.9, 0);
-        this.rotationX = (Math.random() - .5);
+        this.rotationX = 0 //(Math.random() - .5);
         this.rotationY = 0;
-        this.rotationZ = radians(-180) + rot * (Math.random() - 0.5);
+        this.rotationZ = radians(-180) // + rot * (Math.random() - 0.5);
     }
 }
 class Cylinder {
     constructor() {
         this.geom = new THREE.CylinderGeometry(0.7, 0.7, 0.6, 80);
-        this.rotationX = rot * (Math.random() - 0.5)
+        this.rotationX = 0 //rot * (Math.random() - 0.5)
         this.rotationY = 0;
-        this.rotationZ = radians(-180);
+        this.rotationZ = 0 //radians(-180);
     }
 }
 
 class Torus {
     constructor() {
-        this.geom = new THREE.TorusBufferGeometry(0.7, 0.3, 30, 200);
+        this.geom = new THREE.TorusBufferGeometry(0.01, 0.01, 5, 32);
         this.rotationX = radians(90);
-        this.rotationY = rot * Math.random();
+        this.rotationY = 0 //rot * Math.random();
         this.rotationZ = 0;
     }
 }
@@ -124,6 +124,7 @@ class Torus {
 class Scene {
     constructor() {
         // handles mouse coordinates mapping from 2D canvas to 3D world
+        this.textGeo = 0
         this.raycaster = new THREE.Raycaster();
         this.scene = new THREE.Scene();
         this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -132,17 +133,17 @@ class Scene {
         this.renderer.setPixelRatio(this.originalPRatio);
 
         this.renderer.setClearColor('black', 1);
-        this.renderer.shadowMap.enabled = true;
-        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        //this.renderer.shadowMap.enabled = true;
+        // this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-        this.spacing = 170
+        this.spacing = 120
 
         const canvas = this.renderer.domElement;
         canvas.classList.add('webgl');
         document.body.appendChild(canvas);
         this.canvas = document.getElementsByClassName("webgl")[0]
 
-        this.gutter = { size: 3 };
+        this.gutter = { size: 2 };
         this.meshes = [];
         //this.canvasWidth = this.canvas.offsetWidth;
         //this.canvasHeight = this.canvas.offsetHeight;
@@ -184,14 +185,14 @@ class Scene {
         this.init();
 
         this.animate();
-
+        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     }
 
     init() {
-        this.amblight = '#2900af'
+        this.amblight = '#2950af'
         this.spotlight = '#e000ff'
-        this.rectlight = '#0077ff'
-        this.plcolour = "#ff00ff"
+        this.rectlight = '#0047ff'
+        this.plcolour = "#0f00ff"
 
 
         this.createCamera();
@@ -260,12 +261,8 @@ class Scene {
         var rowsNo = Math.floor(this.height / this.spacing)
 
 
-        this.grid = { cols: colsNo, rows: rowsNo };
-        this.amblight = '#2900af'
-        this.spotlight = '#e000ff'
-        this.rectlight = '#0077ff'
-        this.plcolour = "#ff00ff"
 
+        this.grid = { cols: colsNo, rows: rowsNo };
 
         this.createCamera();
         this.createGrid();
@@ -276,7 +273,7 @@ class Scene {
         this.addFloor();
         this.addEvents();
 
-
+        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
     }
 
@@ -309,24 +306,16 @@ class Scene {
         this.groupMesh = new THREE.Object3D();
 
         const meshParams = {
-            color: '#ff00ff',
+            color: '#f0a5ff',
             metalness: .58,
             emissive: '#000000',
             roughness: .18,
         };
-        const textMeshParams = {
-            color: '#ff00ff',
-            metalness: .58,
-            emissive: '#000000',
-            roughness: .18,
-            side: THREE.DoubleSide,
-            transparent: false,
-            opacity: 1,
-        };
+
 
         // we create our material outside the loop to keep it more performant
         const material = new THREE.MeshPhysicalMaterial(meshParams);
-        const textMaterial = new THREE.MeshPhysicalMaterial(textMeshParams);
+
 
 
         for (let row = 0; row < this.grid.rows; row++) {
@@ -336,11 +325,13 @@ class Scene {
 
                 if ((col === 0 && (row === this.grid.rows - 1))) {
 
-
-
                     var geometry = new Torus();
-                    //var mesh = this.getMesh(geometry.geom, material);
-                    var mesh = this.getMesh(geometry.geom, material);
+                    if (this.textGeo == 0) {
+                        //var mesh = this.getMesh(geometry.geom, material);
+                        var mesh = this.getMesh(geometry.geom, material);
+                    } else {
+                        var mesh = this.textGeo
+                    }
 
                 } else if ((col === 1 && (row === this.grid.rows - 1))) {
                     //continue;
@@ -381,42 +372,6 @@ class Scene {
 
         this.scene.add(this.groupMesh);
 
-        var fontLoader = new THREE.FontLoader();
-        fontLoader.load(fontjson, function(tex) {
-            var textGeo = new THREE.Mesh();
-            textGeo.geometry = new THREE.TextGeometry("TIMO\n CHUNG ", {
-                size: 120,
-                height: 90,
-                bevelEnabled: true,
-                bevelThickness: 8,
-                bevelSize: 5,
-                bevelOffset: -2,
-                bevelSegments: 3,
-                curveSegments: 60,
-                font: tex
-            });
-            textGeo.material = new THREE.MeshNormalMaterial({
-                //color: 'white',
-                //emissive:'cyan',
-                //roughness: 0,
-                //shininess: 100,
-                //metalness: 10,
-                side: THREE.DoubleSide,
-                transparent: false,
-                opacity: 1,
-            });
-
-            textGeo.geometry.computeBoundingBox();
-            textGeo.geometry
-                .boundingBox
-                .getCenter(textGeo.position)
-                .multiplyScalar(-1);
-
-            textGeo.matrixAutoUpdate = false;
-            textGeo.updateMatrix();
-
-            scene.add(textGeo);
-        })
     }
 
     addAmbientLight() {
@@ -530,3 +485,60 @@ class Scene {
 
 
 var test = new Scene();
+
+var fontLoader = new THREE.FontLoader();
+fontLoader.load(fontjson, function(tex) {
+    var textGeo = new THREE.Mesh();
+    textGeo.geometry = new THREE.TextGeometry("TIMO ", {
+        size: 1,
+        height: 1,
+        /*
+        bevelEnabled: true,
+        bevelThickness: 8,
+        bevelSize: 5,
+        bevelOffset: -2,
+        bevelSegments: 3,
+        curveSegments: 60,*/
+        font: tex
+    });
+    textGeo.material = new THREE.MeshPhysicalMaterial({
+        //color: 'white',
+        //emissive:'cyan',
+        //roughness: 0,
+        //shininess: 100,
+        //metalness: 10,
+        side: THREE.DoubleSide,
+        //transparent: false,
+        // opacity: 1,
+        color: '#f0a5ff',
+        metalness: .58,
+        emissive: '#000000',
+        roughness: .18,
+    });
+
+    textGeo.geometry.computeBoundingBox();
+    textGeo.geometry
+        .boundingBox
+        .getCenter(textGeo.position)
+        .multiplyScalar(-1);
+
+    textGeo.matrixAutoUpdate = false;
+    textGeo.updateMatrix();
+
+    var textrow = test.grid.rows - 2
+
+    const pivot = new THREE.Object3D();
+    pivot.add(textGeo);
+
+
+
+    //pivot.position.set(-3, 1, 7);
+
+
+    //pivot.rotation.x = radians(270)
+    //pivot.rotation.y = radians(90)
+    // pivot.rotation.z = radians(90)
+
+
+    test.textGeo = pivot
+})

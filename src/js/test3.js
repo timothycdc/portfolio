@@ -1,6 +1,6 @@
 import '../css/test3.css';
-const glsl = require('glslify');
-require
+
+
 
 window.onload = function() {
     // set up our WebGL context and append the canvas to our wrapper
