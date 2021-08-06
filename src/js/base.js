@@ -1,6 +1,10 @@
-import '../css/test3.css';
+import '../css/base.css';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(gsap, ScrollTrigger);
+
 import TypeIt from "typeit";
+
 
 
 
@@ -88,6 +92,8 @@ function createPlane(webGLCurtain) {
 
 
 
+
+
     }).onRender(function() {
         // update our time uniform value
         plane.uniforms.time.value++;
@@ -139,29 +145,33 @@ function createPlane(webGLCurtain) {
 
 
 
+window.onload = function() {
+    var webGLCurtain = new Curtains({
+        container: "canvas"
+    });
+
+    createPlane(webGLCurtain);
+
+    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isSafari) {
+        var myInterval = setInterval(function() {
+
+            gsap.to('canvas', { duration: 1.2, opacity: 0 })
 
 
-var webGLCurtain = new Curtains({
-    container: "canvas"
-});
-
-createPlane(webGLCurtain);
-
-var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-if (isSafari) {
-    var myInterval = setInterval(function() {
-
-        gsap.to('canvas', { duration: 1.2, opacity: 0 })
+            setTimeout(function() {
+                webGLCurtain.dispose();
+                createPlane(webGLCurtain);
+                gsap.to('canvas', { duration: 1, opacity: 1 })
+            }, 1000)
+        }, 100000);
+    }
 
 
-        setTimeout(function() {
-            webGLCurtain.dispose();
-            createPlane(webGLCurtain);
-            gsap.to('canvas', { duration: 1, opacity: 1 })
-        }, 1000)
-    }, 100000);
-}
+
+
+};
 
 
 

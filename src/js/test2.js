@@ -6,7 +6,7 @@ const rot = 2.2
 
 import * as THREE from 'three';
 import { gsap } from 'gsap';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const loader = new THREE.FontLoader();
 const fontjson = require("../json/osaucesansblk.json");
@@ -114,7 +114,7 @@ class Cylinder {
 
 class Torus {
     constructor() {
-        this.geom = new THREE.TorusBufferGeometry(0.01, 0.01, 5, 32);
+        this.geom = new THREE.TorusBufferGeometry(0.5, 0.2, 5, 32);
         this.rotationX = radians(90);
         this.rotationY = 0 //rot * Math.random();
         this.rotationZ = 0;
@@ -185,7 +185,7 @@ class Scene {
         this.init();
 
         this.animate();
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+        //this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     }
 
     init() {
@@ -273,7 +273,7 @@ class Scene {
         this.addFloor();
         this.addEvents();
 
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+        //this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
     }
 

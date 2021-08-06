@@ -6,7 +6,7 @@ const rot = 2.2
 
 import * as THREE from 'three';
 import { gsap } from 'gsap';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const loader = new THREE.FontLoader();
 const fontjson = require("../json/osaucesansblk.json");
@@ -117,10 +117,33 @@ renderer.setPixelRatio(originalPRatio);
 renderer.setClearColor('black', 1);
 //renderer.shadowMap.enabled = true;
 // renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+var width = window.innerWidth;
+var height = window.innerHeight;
 
-var textGeo = null
-
+var factor = height / width
 var spacing = 120;
+var fov = 25;
+
+
+
+if (((factor) <= 1.5) && ((factor) >= 0.8)) {
+    spacing = 175
+}
+
+if (((factor) <= 1.9) && ((factor) >= 1.5)) {
+    spacing = 100
+}
+
+if (((factor) <= 2.2) && ((factor) >= 1.9)) {
+    spacing = 90
+}
+
+if (((factor) <= 0.3) && ((factor) >= 0.2)) {
+    fov = 10
+}
+if (((factor) <= 0.5) && ((factor) >= 0.3)) {
+    fov = 14
+}
 
 var canvas = renderer.domElement;
 canvas.classList.add('webgl');
@@ -131,8 +154,7 @@ var gutter = { size: 2 };
 var meshes = [];
 var groupMesh = new THREE.Object3D();
 
-var width = window.innerWidth;
-var height = window.innerHeight;
+
 
 renderer.setSize(width, height);
 
@@ -156,7 +178,7 @@ var geometries = [
 
 
 window.addEventListener('mousemove', function(e) { onMouseMove({ clientX: e.clientX, clientY: e.clientY }) });
-window.addEventListener('touchmove', function(e) { onTouch({ changedtouches: e.changedTouches }) });
+window.addEventListener('touchmove', function(e) { onTouch({ changedTouches: e.changedTouches }) });
 window.addEventListener('touchend', touchReset());
 window.addEventListener('resize', resize);
 
@@ -170,8 +192,16 @@ var rectlight = '#0077ff'
 var plcolour = "#0f00ff"
 
 
-var camera = new THREE.PerspectiveCamera(22, width / height, 1);
-var controls = new OrbitControls(camera, renderer.domElement);
+
+
+
+
+
+
+
+
+var camera = new THREE.PerspectiveCamera(fov, width / height, 1);
+//var controls = new OrbitControls(camera, renderer.domElement);
 const geometry = new THREE.PlaneGeometry(100, 100);
 const material = new THREE.ShadowMaterial({ opacity: .3 });
 
@@ -206,7 +236,7 @@ function init() {
 }
 
 function render() {
-    controls.update();
+    //controls.update();
     draw(groupMesh);
     renderer.render(scene, camera);
 
@@ -244,34 +274,35 @@ function touchReset() {
 
 
 function resize() {
-    console.log('resized')
+    /*
+        meshes = []
+        groupMesh = new THREE.Object3D();
+        clearThree(scene);
 
-    clearThree(scene);
+        //originalPRatio = window.devicePixelRatio;
+        renderer.setPixelRatio(originalPRatio);
 
-    //originalPRatio = window.devicePixelRatio;
-    renderer.setPixelRatio(originalPRatio);
+        width = window.innerWidth;
+        height = window.innerHeight;
 
-    width = window.innerWidth;
-    height = window.innerHeight;
-
-    renderer.setSize(width, height);
-    meshes = []
-    groupMesh = new THREE.Object3D();
-
-    colsNo = Math.floor(width / spacing)
-    rowsNo = Math.floor(height / spacing)
-
-    camera.aspect = (width / height);
-    camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
 
 
-    grid = { cols: colsNo, rows: rowsNo };
+        colsNo = Math.floor(width / spacing)
+        rowsNo = Math.floor(height / spacing)
 
-    scene.add(floor)
-    scene.add(camera)
-    init();
+        camera.aspect = (width / height);
+        camera.updateProjectionMatrix();
 
 
+        grid = { cols: colsNo, rows: rowsNo };
+
+        scene.add(floor)
+            //scene.add(camera)
+        init();
+
+    */
+    window.location.reload()
 
 
 }
@@ -295,17 +326,17 @@ function createGrid() {
     // create a basic 3D object to be used as a container for our grid elements so we can move all of them together
 
 
-    const meshParams = {
-        color: '#e085ef',
-        metalness: .58,
-        emissive: '#000000',
-        roughness: .18,
-    };
+    // const meshParams = {
+    //     color: '#e085ef',
+    //     metalness: .58,
+    //     emissive: '#000000',
+    //     roughness: .18,
+    // };
 
 
     // we create our material outside the loop to keep it more performant
-    const material = new THREE.MeshNormalMaterial(meshParams);
-
+    const material = new THREE.MeshNormalMaterial();
+    meshes = []
 
 
     for (let row = 0; row < grid.rows; row++) {
@@ -331,13 +362,13 @@ function createGrid() {
                         //roughness: 0,
                         //shininess: 100,
                         //metalness: 10,
-                        color: '#f0a5ff',
-                        metalness: .58,
-                        emissive: '#000000',
-                        roughness: .18,
-                        side: THREE.DoubleSide,
-                        transparent: false,
-                        opacity: 1,
+                        // color: '#f0a5ff',
+                        // metalness: .58,
+                        // emissive: '#000000',
+                        // roughness: .18,
+                        // side: THREE.DoubleSide,
+                        // transparent: false,
+                        // opacity: 1,
                     });
 
                     textGeo.geometry.computeBoundingBox();

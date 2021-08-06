@@ -20,6 +20,7 @@ body {
     font-family: termina, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: fixed;
 }
 
 .demo-2 {

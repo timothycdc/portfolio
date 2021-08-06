@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,39 +6,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/test3.js" defer></script>
-    <script>
-        history.scrollRestoration = "manual"
-    </script>
-    <link rel="stylesheet" type="text/css" href="css/test3.css">
+    <script src="../js/base.js" defer></script>
+    <script src="../js/testx.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
 
     <title>Document</title>
 
 </head>
 
+
+
+
+
 <body>
+<div class = 'scroller' >
 
-
-
-    <div class='main' data-scroll-container>
-        <div class='bg' data-scroll-section>
-
+        <div class='bg' >
             <div id="canvas">
-
             </div>
             <div class="plane">
                 <img src="images/photo1.jpg" crossorigin="anonymous" />
             </div>
-
         </div>
 
 
 
-
-
-        <section class="content-wrapper zero" data-scroll-section>
-            <div class='content' data-scroll>
-                <div class='firstwrap' data-scroll>
+        <section class="content-wrapper zero" >
+            <div class='content'>
+                <div class='firstwrap' >
                     <h1>Timothy <span id='surname' style='line-height: 4rem'>Chung </span></h1>
                     <h2 id='hero'><span id='herotext'></span></h2>
                 </div>
@@ -46,34 +42,35 @@
 
         </section>
 
-        <section class="content-wrapper one" data-scroll-section>
-            <div class='content' data-scroll-section>
-                <h1 data-scroll>One</h1>
-                <p data-scroll>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi quos, ratione deserunt natus exercitationem molestias repellendus suscipit odio labore temporibus impedit hic, obcaecati excepturi laborum distinctio nesciunt repudiandae
+        <section class="content-wrapper one ">
+            <div class='content text' id = 'blob'>
+                <h1 >One</h1>
+                <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi quos, ratione deserunt natus exercitationem molestias repellendus suscipit odio labore temporibus impedit hic, obcaecati excepturi laborum distinctio nesciunt repudiandae
                     aliquid?</p>
             </div>
         </section>
 
-        <section class="content-wrapper two">
-            <div class='content' data-scroll-section>
-                <h1 data-scroll>Two</h1>
-                <p data-scroll>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi quos, ratione deserunt natus exercitationem molestias repellendus suscipit odio labore temporibus impedit hic, obcaecati excepturi laborum distinctio nesciunt repudiandae
+        <section class="content-wrapper two " >
+            <div class='content text' >
+                <h1 >Two</h1>
+                <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi quos, ratione deserunt natus exercitationem molestias repellendus suscipit odio labore temporibus impedit hic, obcaecati excepturi laborum distinctio nesciunt repudiandae
                     aliquid?</p>
             </div>
         </section>
 
 
-    </div>
+</div>
 
 
 
 
 
 
+        
 
 </body>
 <footer>
-	<script id="plane-vs" type="x-shader/x-vertex " defer>
+		<script id="plane-vs" type="x-shader/x-vertex " defer>
 			#ifdef GL_ES
 			precision lowp float;
 			#endif
@@ -191,7 +188,6 @@
         </script>
 
 
-    <script src="https://www.curtainsjs.com/build/curtains.min.js" type="text/javascript"></script>
+		<script src="https://www.curtainsjs.com/build/curtains.min.js" type="text/javascript"></script>
 </footer>
-
 </html>
