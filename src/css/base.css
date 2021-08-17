@@ -1,232 +1,959 @@
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-Black.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 900;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-BlackItalic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 900;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-ExtraBold.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 800;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-ExtraBoldItalic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 800;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-Bold.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-BoldItalic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-SemiBold.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-SemiBoldItalic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-Medium.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-MediumItalic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-Regular.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-Italic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-Light.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'OpenSauceOne';
-    src: url('../fonts/OpenSauceOne-LightItalic.woff2') format('woff2');
-    font-style: italic;
-    font-weight: 300;
-}
-
-html,
-body {
-    width: 100%;
-    box-sizing: border-box;
-    font-family: OpenSauceOne, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: block;
-    z-index: -1;
-    overflow: hidden;
-}
-
-#canvas {
-    /* make the canvas wrapper fits the window */
-    width: inherit !important;
-    height: 100vh !important;
-    background-color: #bec6d2;
-    overflow: hidden;
-    height: 100vh;
-}
-
-.scroller {
-    height: 100vh;
-}
-
-canvas {
-    height: inherit !important;
-    width: inherit !important;
-    position: absolute;
-}
-
-.webgl {
-    z-index: 9;
-}
-
-.plane {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    filter: blur(10px);
-    z-index: -99;
-}
-
-.plane img {
-    /* hide the img element */
-    display: none;
-}
-
-.firstwrap #hero {
-    font-size: 1.9rem;
-    color: #fff;
-    font-weight: 700;
-    -webkit-text-fill-color: #fff;
-    -webkit-text-stroke-width: unset;
-    -webkit-text-stroke-color: unset;
-}
-
-#herotext {
-    border-bottom: 2px solid white;
-    line-height: 1.9rem;
-}
-
-.content-wrapper h1 {
-    font-size: 4rem;
-    color: #fff;
-    font-weight: 900;
-    -webkit-text-fill-color: rgba(0, 0, 0, 0.1);
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #fff;
-}
-
-.content-wrapper {
-    height: 100vh;
-    overflow: hidden;
-}
-
-.content-wrapper p {
-    font-size: 1.3rem;
-    color: white;
-}
-
-.content {
-    margin: 40px;
-}
-
-.zero {
-    background: rgba(0, 0, 0, 0.0);
-}
-
-.zero h1 {
-    margin: 10px 0px;
-}
-
-.one {
-    background: #bec6d2
-}
-
-.two {
-    background: #2a3150;
-}
-
-.reveal-surname {
-    transition: 1s ease all;
-}
-
-.no-curtains .plane {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.no-curtains .plane img {
-    display: block;
-    max-width: 100%;
-    object-fit: cover;
-}
-
-canvas.webgl {
-    height: 50vh !important;
-    width: 50vw !important;
-    right: 0
-}
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+    
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: block;
+    }
+    
+    body {
+        line-height: 1;
+    }
+    
+    ol,
+    ul {
+        list-style: none;
+    }
+    
+    blockquote,
+    q {
+        quotes: none;
+    }
+    
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-Black.woff2') format('woff2');
+        font-style: normal;
+        font-weight: 900;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-BlackItalic.woff2') format('woff2');
+        font-style: italic;
+        font-weight: 900;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-ExtraBold.woff2') format('woff2');
+        font-style: normal;
+        font-weight: 800;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-ExtraBoldItalic.woff2') format('woff2');
+        font-style: italic;
+        font-weight: 800;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-Bold.woff2') format('woff2');
+        font-style: normal;
+        font-weight: 700;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-BoldItalic.woff2') format('woff2');
+        font-style: italic;
+        font-weight: 700;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-SemiBold.woff2') format('woff2');
+        font-style: normal;
+        font-weight: 600;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-SemiBoldItalic.woff2') format('woff2');
+        font-style: italic;
+        font-weight: 600;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-Medium.woff2') format('woff2');
+        font-style: normal;
+        font-weight: 500;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-MediumItalic.woff2') format('woff2');
+        font-style: italic;
+        font-weight: 500;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-Regular.woff2') format('woff2');
+        font-style: normal;
+        font-weight: 400;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-Italic.woff2') format('woff2');
+        font-style: italic;
+        font-weight: 400;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-Light.woff2') format('woff2');
+        font-style: normal;
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: 'OpenSauceOne';
+        src: url('../fonts/OpenSauceOne-LightItalic.woff2') format('woff2');
+        font-style: italic;
+        font-weight: 300;
+    }
+    
+     :root {
+        --hgrid-padding: 25px;
+        --vgrid-padding: 25px;
+        --menu-square-length: 80px;
+        --scroll-square-length: 250px;
+        --time-box-length: 220px;
+    }
+    
+    html,
+    body {
+        width: 100%;
+        box-sizing: border-box;
+        font-family: OpenSauceOne, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #20243a;
+    }
+    
+    body {
+        overflow: hidden;
+    }
+    
+    #loadwrapper {
+        height: 101vh;
+        width: 100vw;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        align-items: center;
+        pointer-events: none;
+        overflow: hidden;
+        background: #20243a;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .loaderbadge {
+        padding: 0;
+        background: #d5c3af;
+        -webkit-clip-path: circle(40% at 50% 50%);
+        clip-path: circle(40% at 50% 50%);
+        z-index: 11;
+    }
+    
+    .textcircle {
+        position: relative;
+        display: block;
+        width: 200px;
+        animation: 6s rotate infinite linear;
+    }
+    
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes rotateback {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+    
+    .textcircle text {
+        font-size: 50px;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        fill: #20243a;
+    }
+    
+    .textcircle textPath {
+        letter-spacing: 17px;
+        /* Firefox needs this */
+    }
+    
+    #canvas {
+        /* make the canvas wrapper fits the window */
+        width: inherit !important;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        padding: 0px;
+        min-height: 550px;
+    }
+    
+    #canvas::after {
+        content: "";
+        position: absolute;
+        width: 240vw;
+        height: 240vh;
+        left: -50%;
+        top: -50%;
+        opacity: 0.4;
+        background-image: url(../images/noise2.png);
+    }
+    
+    canvas {
+        height: 100vh !important;
+        width: 100vw !important;
+        min-height: 550px;
+        z-index: 1;
+        filter: blur(7px);
+        opacity: 0;
+    }
+    
+    .plane {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+    
+    .plane img {
+        /* hide the img element */
+        display: none;
+    }
+    /*ROTATING CIRCLE*/
+    
+    .rotating-badge {
+        padding: 0;
+        -webkit-clip-path: circle(40% at 50% 50%);
+        clip-path: circle(40% at 50% 50%);
+        height: 100%;
+        width: 100%;
+    }
+    
+    .rotating-badge .rotate-textcircle {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        animation: 20s rotate infinite linear;
+    }
+    
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    .rotating-badge .rotate-textcircle .rotate-scroll-text {
+        font-size: 30px;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        fill: #f892a1;
+    }
+    
+    .rotating-badge .rotate-textcircle textPath {
+        letter-spacing: 10px;
+        /* Firefox needs this */
+    }
+    
+    .homegrid {
+        position: absolute;
+        box-sizing: border-box;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: [line1] var(--hgrid-padding) [line2] var(--time-box-length) [line3] 1fr [line4] 1fr [line5] calc(var(--scroll-square-length) - var(--menu-square-length)) [line6] var(--menu-square-length) [line7] var(--hgrid-padding) [end];
+        grid-template-rows: [row1] var(--vgrid-padding) [row2] var(--menu-square-length) [row3] auto [row4] calc(var(--scroll-square-length) - var(--menu-square-length)) [row5] var(--menu-square-length) [row6] var(--vgrid-padding) [row7] 0vh [end];
+    }
+    
+    .home-border {
+        grid-column-start: line2;
+        grid-column-end: line7;
+        grid-row-start: row2;
+        grid-row-end: row6;
+        /*border: 4px solid #fffff5;*/
+    }
+    
+    .home-top-row {
+        grid-column-start: line2;
+        grid-column-end: line7;
+        grid-row-start: row2;
+        grid-row-end: row3;
+        /*border: 4px solid #fffff5;*/
+    }
+    
+    .home-menu-square {
+        grid-column-start: line6;
+        grid-column-end: line7;
+        grid-row-start: row2;
+        grid-row-end: row3;
+        /*border: 4px solid #fffff5;*/
+        background-color: #f892a1;
+        z-index: 99;
+        border-radius: 8px;
+    }
+    
+    .home-bottom-row {
+        grid-column-start: line2;
+        grid-column-end: line5;
+        grid-row-start: row5;
+        grid-row-end: row6;
+        /*border: 4px solid #fffff5;*/
+        border-right: 0px;
+        color: #fffff5;
+        font-family: OpenSauceOne, sans-serif;
+        padding: 0 20px;
+        font-weight: 400;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .home-scroll-square {
+        grid-column-start: line5;
+        grid-column-end: line7;
+        grid-row-start: row4;
+        grid-row-end: row6;
+        /*border: 4px solid #fffff5;*/
+    }
+    
+    .home-date {
+        grid-column-start: line2;
+        grid-column-end: line5;
+        grid-row-start: row5;
+        grid-row-end: row6;
+        /* border: 4px solid #fffff5; */
+        padding: 17px;
+        font-size: 18px;
+        line-height: 24px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        font-family: 'JetBrains Mono', monospace;
+        color: #fffff5;
+        letter-spacing: 1px;
+        text-align: left;
+        font-weight: 500;
+        transform: translateY(-20px);
+    }
+    
+    #typer {
+        grid-column-start: line2;
+        grid-column-end: line6;
+        grid-row-start: row2;
+        grid-row-end: row3;
+        /* border: 4px solid #fffff5; */
+        color: #fffff5;
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 100%;
+        margin: auto 10px;
+        white-space: nowrap;
+        transform: translateY(-10px);
+        font-size: 1.6rem;
+    }
+    
+    #typerline {
+        background-color: #5d9f88;
+        padding: 2px 4px;
+    }
+    
+    .main-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-column-start: line2;
+        grid-column-end: line6;
+        grid-row-start: row3;
+        grid-row-end: row5;
+        padding-left: 30px;
+    }
+    
+    .main-title svg {
+        fill: #f892a1;
+        margin: 20px 20px 0px 20px;
+        width: 100px;
+        height: 100px;
+        animation: 30s rotate infinite linear;
+    }
+    
+    #down-arrow-container {
+        grid-column-start: line5;
+        grid-column-end: line7;
+        grid-row-start: row4;
+        grid-row-end: row6;
+        width: var(--scroll-square-length);
+        height: var(--scroll-square-length);
+        /*border: 4px solid #fffff5;*/
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        border: 0px solid rgba(0, 0, 0, 0)
+    }
+    
+    #down-arrow {
+        width: 50px;
+        height: 50px;
+        fill: #f892a1;
+        align-self: center;
+    }
+    
+    .homegrid .solid {
+        font-size: 5.5rem;
+        font-weight: 700;
+        color: #f892a1;
+        padding: 20px;
+        width: fit-content;
+        line-height: 5rem;
+        letter-spacing: 1px;
+        /* background-color: #d5c3af;
+    border-radius: 7px;
+    border: 8px solid #d5c3af */
+    }
+    
+    .reveal-surname {
+        transition: 1s ease all;
+    }
+    
+    .content-wrapper {
+        position: relative;
+    }
+    /*SECTION ZERO ABOUT ME*/
+    
+    .zero {
+        background: #20243a;
+        padding: 100px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .about-me {
+        background-color: #fffff5;
+        display: block;
+        width: 60vw;
+        min-height: 300px;
+        box-shadow: 10px 10px 0 0px #5d9f88;
+        margin: 50px auto 50px 5%;
+        font-family: OpenSauceOne, sans-serif;
+        font-weight: 500;
+        color: #20243a;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
+    
+    .about-me .content {
+        padding: 50px;
+    }
+    
+    .section-rotator {
+        height: 500px;
+        width: 500px;
+        position: absolute;
+        right: -150px;
+        overflow: hidden;
+    }
+    
+    .rotating-badge-section {
+        padding: 0;
+        -webkit-clip-path: circle(40% at 50% 50%);
+        clip-path: circle(40% at 50% 50%);
+        height: 100%;
+        width: 100%;
+    }
+    
+    .rotating-badge-section .rotate-textcircle {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        animation: 20s rotateback infinite linear;
+    }
+    
+    .rotating-badge-section .rotate-textcircle .rotate-scroll-text {
+        font-size: 40px;
+        font-weight: 700;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        fill: #fffff5;
+    }
+    
+    .rotating-badge-section .rotate-textcircle textPath {
+        letter-spacing: 10px;
+        /* Firefox needs this */
+    }
+    
+    .box-marquee {
+        background-color: #f892a1;
+        color: #fffff5;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px 15px;
+        height: 3rem;
+        font-weight: 300;
+        overflow: hidden;
+    }
+    
+    .marquee-title-wrapper {
+        overflow: hidden;
+        position: relative;
+        padding: 20px 0px;
+    }
+    
+    .marquee-title {
+        padding: 15px 0px;
+        font-family: 'Jetbrains Mono', monospace;
+        color: #fffff5;
+        font-size: 2rem;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        letter-spacing: 3px;
+        border-top: 3px solid #fffff5;
+        border-bottom: 3px solid #fffff5;
+        font-weight: 200;
+    }
+    
+    .one {
+        background: #fffff5;
+        padding: 130px 10px 90px 10px;
+        overflow: hidden;
+    }
+    
+    .one .content {
+        width: 70%;
+        margin: auto;
+    }
+    
+    .one h1 {
+        font-family: OpenSauceOne, sans-serif;
+        font-style: italic;
+        color: #f892a1;
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 3.5rem;
+        margin-bottom: 60px;
+    }
+    
+    .one h2 {
+        text-align: right;
+        font-family: OpenSauceOne, sans-serif;
+        color: #f892a1;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        font-weight: 500;
+    }
+    
+    .two {
+        background: #f892a1;
+        padding: 50px;
+        display: flex;
+    }
+    
+    .card-work {
+        background-color: #fffff5;
+        display: block;
+        width: 100px;
+        height: 300px;
+        box-shadow: 10px 10px 0 0px #5d9f88;
+        font-family: OpenSauceOne, sans-serif;
+        font-weight: 500;
+        color: #20243a;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
+    
+    .no-curtains .plane {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .no-curtains .plane img {
+        display: block;
+        max-width: 100%;
+        object-fit: cover;
+    }
+    
+    canvas.webgl {
+        position: absolute;
+        z-index: 3;
+        height: 100% !important;
+        width: 100% !important;
+    }
+    
+    .cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #fff;
+        z-index: 99999;
+        opacity: 0
+    }
+    
+    .follower {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #f892a1;
+        z-index: 9999;
+        opacity: 0;
+    }
+    
+    @media screen and (max-width: 1100px) {
+        .section-rotator {
+            right: -250px;
+        }
+    }
+    
+    @media screen and (max-width: 800px) {
+        .homegrid .solid {
+            font-size: 4.5rem;
+            color: #f892a1;
+            padding: 10px;
+            width: fit-content;
+            line-height: 4.2rem;
+        }
+        .home-bottom-row {
+            font-size: 1rem;
+        }
+        .main-title svg {
+            fill: #f892a1;
+            margin: 20px 0px 0px 10px;
+            width: 80px;
+            height: 80px;
+            animation: 30s rotate infinite linear;
+        }
+        .zero {
+            padding: 50px 20px;
+        }
+        .about-me {
+            background-color: #fffff5;
+            display: block;
+            width: 60vw;
+            min-height: 300px;
+            box-shadow: 10px 10px 0 0px #5d9f88;
+            margin: 20px auto 20px 20px;
+            font-family: OpenSauceOne, sans-serif;
+            font-weight: 500;
+            color: #20243a;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+        }
+        .about-me .content {
+            padding: 25px;
+        }
+        .section-rotator {
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            right: -125px;
+            overflow: hidden;
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+         :root {
+            --hgrid-padding: 20px;
+            --vgrid-padding: 20px;
+            --menu-square-length: 60px;
+            --scroll-square-length: 190px;
+        }
+        .follower,
+        .cursor {
+            display: none;
+        }
+        .homegrid {
+            grid-template-columns: [line1] var(--hgrid-padding) [line2] 1fr [line3] 1fr [line4] auto [line5] calc(var(--scroll-square-length) - var(--menu-square-length)) [line6] var(--menu-square-length) [line7] var(--hgrid-padding) [end];
+            grid-template-rows: [row1] var(--vgrid-padding) [row2] var(--menu-square-length) [row3] auto [row4] calc(var(--scroll-square-length) - var(--menu-square-length)) [row5] var(--menu-square-length) [row6] var(--vgrid-padding) [row7] 0vh [end];
+        }
+        #typer {
+            grid-column-start: line2;
+            grid-column-end: line6;
+            grid-row-start: row2;
+            grid-row-end: row3;
+            font-size: 1.2rem;
+        }
+        .home-date {
+            grid-column-start: line2;
+            grid-column-end: line5;
+            grid-row-start: row5;
+            grid-row-end: row6;
+            border-right: none;
+            padding: 10px;
+            font-size: 13px;
+            line-height: 14px;
+            justify-content: center;
+            letter-spacing: 0px;
+            transform: translateY(-20px);
+        }
+        .main-title {
+            padding-left: 0px;
+        }
+        .main-title svg {
+            fill: #f892a1;
+            margin: 20px 0px 0px 10px;
+            width: 70px;
+            height: 70px;
+            animation: 30s rotate infinite linear;
+        }
+        .homegrid .solid {
+            font-size: 20vw;
+            color: #f892a1;
+            width: fit-content;
+            line-height: 20vw;
+        }
+        .main-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            grid-column-start: line2;
+            grid-column-end: line5;
+            grid-row-start: row3;
+            grid-row-end: row4;
+            padding-left: 10px;
+        }
+        .home-bottom-row {
+            display: none;
+        }
+        .zero {
+            padding: 100px 35px 50px 35px;
+        }
+        .about-me {
+            width: 100%;
+            margin: 0;
+        }
+        .section-rotator {
+            height: 300px;
+            position: unset;
+            width: 100%;
+            overflow: hidden;
+            transform: translate(5px, 0px);
+            margin-top: 40px;
+            margin-bottom: -200px;
+        }
+        .one {
+            padding: 60px 10px 30px 10px;
+        }
+        .one .content {
+            width: 90%;
+            margin: auto;
+            text-align: justify;
+        }
+        .one h1 {
+            font-family: OpenSauceOne, sans-serif;
+            font-style: italic;
+            color: #f892a1;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 2.5rem;
+            margin-bottom: 60px;
+        }
+        .one h2 {
+            text-align: left;
+        }
+    }
+    
+    @media screen and (max-width: 400px) {
+        .zero {
+            padding: 100px 35px 50px 35px;
+        }
+        #typer {
+            font-size: 1.1rem;
+        }
+    }
+    
+    @media screen and (max-width: 320px) {
+         :root {
+            --hgrid-padding: 5px;
+            --vgrid-padding: 5px;
+            --menu-square-length: 50px;
+            --scroll-square-length: 170px;
+        }
+        .ccode {
+            display: none;
+        }
+        .home-date {
+            grid-column-start: line2;
+            grid-column-end: line5;
+            grid-row-start: row5;
+            grid-row-end: row6;
+            border-right: none;
+            padding: 10px;
+            padding-left: 20px;
+            font-size: 13px;
+            line-height: 14px;
+            transform: translateY(-20px);
+        }
+        .main-title {
+            padding-left: 10px;
+        }
+        .homegrid .solid {
+            font-size: 3rem;
+            color: #f892a1;
+            width: fit-content;
+            line-height: 2.8rem;
+        }
+    }

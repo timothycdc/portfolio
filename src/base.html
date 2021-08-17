@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/base.js" defer></script>
-    <script src="../js/testx.js" defer></script>
+    <!--script src="../js/testx.js" defer></script-->
     <link rel="stylesheet" type="text/css" href="css/base.css">
-
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
+  
     <title>Document</title>
 
 </head>
@@ -19,47 +22,134 @@
 
 
 <body>
-<div class = 'scroller' >
 
-        <div class='bg' >
-            <div id="canvas">
+    <main class='container'>
+
+        <div id="loadwrapper">
+            <div class='cursor'></div>
+            <div class='follower'></div>
+
+
+            <div class="loaderbadge">
+                <svg class="textcircle" viewBox="0 0 600 600">
+							<title>Loader</title>
+							<defs><path id="textcircle" d="M300,450 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z"/></defs>
+							<text><textPath xlink:href="#textcircle" aria-label="Loading" textLength="980">Loading * Loading * &nbsp;</textPath></text>
+						</svg>
             </div>
-            <div class="plane">
+        </div>
+
+
+        <div id="canvas">
+
+            <div class='homegrid'>
+                <div class='home-border'></div>
+                <div class='home-menu-square'></div>
+                <div class='home-top-row'></div>
+                <div class='home-bottom-row'>
+                    <!--p>welcome to my portfolio, enjoy your browse</p-->
+                </div>
+
+                <div id='down-arrow-container'>
+                    <svg id='down-arrow' xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f892a1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<line x1="12" y1="5" x2="12" y2="19" />
+						<line x1="18" y1="13" x2="12" y2="19" />
+						<line x1="6" y1="13" x2="12" y2="19" />
+						</svg>
+                </div>
+
+                <div class='home-scroll-square'>
+                    <div class="rotating-badge">
+                        <svg class="rotate-textcircle" viewBox="0 0 500 500">
+							<title>Loader</title>
+							<defs><path id="rotate-textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z"/></defs>
+							<text class = 'rotate-scroll-text'><textPath xlink:href="#rotate-textcircle" aria-label="Loading" textLength="900">Scroll Down – Scroll Down – Scroll Down – </textPath></text>
+						</svg>
+                    </div>
+                </div>
+
+                <div class='main-title'>
+                    <svg xmlns="http://www.w3.org/2000/svg" color='currentColor' width="24" height="24" viewBox="0 0 24 24"><path d="M12 0l2.139 2.629 3.068-1.441.786 3.297 3.389.033-.722 3.312 3.039 1.5-2.088 2.67 2.088 2.67-3.039 1.5.722 3.312-3.389.033-.786 3.297-3.068-1.441-2.139 2.629-2.139-2.629-3.068 1.441-.786-3.297-3.389-.033.722-3.312-3.039-1.5 2.088-2.67-2.088-2.67 3.039-1.5-.722-3.312 3.389-.033.786-3.297 3.068 1.441z"/></svg>
+                    <h1 class='solid'>TIMO<br> CHUNG</h1>
+                </div>
+
+                <div class='home-date'>
+                    <p><span id='mys'>12:34:59</span>&nbsp;<span class='ccode'>MYT&nbsp;</span>🇲🇾</p>
+                    <p><span id='lon'>05:34:59</span>&nbsp;<span class='ccode'>UKT&nbsp;</span>🇬🇧</p>
+                </div>
+
+                <div id="typer"
+				><span id = 'typerline'></span>
+                    
+				</div>
+						
+
+			</div>
+		</div>
+
+            
+
+
+        <div class="plane">
                 <img src="images/photo1.jpg" crossorigin="anonymous" />
-            </div>
         </div>
 
 
 
         <section class="content-wrapper zero" >
+
+			
+
+            <div class='about-me'>
+				<div class = "box-marquee marquee3k" data-speed="0.5" data-pausable='bool' data-reverse="bool">
+					<span>ABOUT ME&nbsp;–&nbsp;ABOUT ME&nbsp;–&nbsp;ABOUT ME&nbsp;–&nbsp;</span>
+				</div>
+				<div class = 'content'>
+                <p>Hello! I'm Timothy, a MEng student at Imperial College London – studying Electronic and Information Engineering, with a keen interest in machine learning, AI, and mathematics.</p><br>
+				<p>Currently based in London, from Malaysia. 🇲🇾</p><br>
+				<p>My interests span a broader range of disciplines too!</p><br>
+				</div>
+            </div>
+
+			<div class = 'section-rotator'>
+					<div class="rotating-badge-section">
+                        <svg class="rotate-textcircle" viewBox="0 0 500 500">
+							<title>Loader</title>
+							<defs><path id="rotate-textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z"/></defs>
+							<text class = 'rotate-scroll-text'><textPath xlink:href="#rotate-textcircle" aria-label="Loading" textLength="900">Timothy's 2021 Blog &amp; Portfolio –</textPath></text>
+						</svg>
+                    </div>
+			</div>
+			
+
+        </section>
+
+        <section class="content-wrapper one" >
             <div class='content'>
-                <div class='firstwrap' >
-                    <h1>Timothy <span id='surname' style='line-height: 4rem'>Chung </span></h1>
-                    <h2 id='hero'><span id='herotext'></span></h2>
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="content-wrapper one ">
-            <div class='content text' id = 'blob'>
-                <h1 >One</h1>
-                <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi quos, ratione deserunt natus exercitationem molestias repellendus suscipit odio labore temporibus impedit hic, obcaecati excepturi laborum distinctio nesciunt repudiandae
-                    aliquid?</p>
+                <h1>I do a lot of other things of the artsy sort – photo and video, graphic/web design, and music (classical, jazz, funk, r&amp;b!) </h1>
+				<h2>(not just any old engineering student 😤 built different)</h2>
             </div>
         </section>
 
-        <section class="content-wrapper two " >
-            <div class='content text' >
-                <h1 >Two</h1>
-                <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi quos, ratione deserunt natus exercitationem molestias repellendus suscipit odio labore temporibus impedit hic, obcaecati excepturi laborum distinctio nesciunt repudiandae
-                    aliquid?</p>
-            </div>
-        </section>
+		<section class = 'marquee-title-wrapper'>
+		<div class = 'marquee3k marquee-title'data-reverse="bool" data-speed="0.5">
+			<span>
+				CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;
+			</span>
+		</div>
+		</section>
+
+		<section class = 'content-wrapper two'>
+			<div class = 'content'>
+
+			</div>
+		</section>
 
 
-</div>
+
+
+</main>
 
 
 
@@ -71,10 +161,10 @@
 </body>
 <footer>
 		<script id="plane-vs" type="x-shader/x-vertex " defer>
-			#ifdef GL_ES
-			precision lowp float;
-			#endif
-
+			//#ifdef GL_ES
+			
+			//#endif
+			precision highp float;
 			// those are the mandatory attributes that the lib sets
 			attribute vec3 aVertexPosition;
 			attribute vec2 aTextureCoord;
@@ -86,7 +176,7 @@
           
             // our texture matrix uniform (this is the lib default name, but it could be changed)
             uniform mat4 uTextureMatrix0;
-						// our time uniform
+			// our time uniform
 			uniform float uTime;
 
 			// our mouse position uniform
@@ -97,7 +187,7 @@
       
 
 			// if you want to pass your vertex and texture coords to the fragment shader
-			varying vec3 vVertexPosition;
+			//varying vec3 vVertexPosition;
 			varying vec2 vTextureCoord;
 
 			void main() {
@@ -107,35 +197,39 @@
 				float distanceFromMouse = distance(uMousePosition, vec2(vertexPosition.x, vertexPosition.y));
 
 				// this will define how close the ripples will be from each other. The bigger the number, the more ripples you'll get
-				float rippleFactor = 3.0;
+				float rippleFactor = 4.0;
 				// calculate our ripple effect
 				float rippleEffect = cos(rippleFactor * (distanceFromMouse - (uTime / 200.0)));
 
 				// calculate our distortion effect
-				float distortionEffect = rippleEffect * uMouseStrength;
+				float distortionEffect = rippleEffect * uMouseStrength /3.0;
 
 				// apply it to our vertex position
-				vertexPosition.z -=  distortionEffect/ 15.0;
-				vertexPosition.x +=  distortionEffect/25.0;
-				vertexPosition.y +=  distortionEffect/25.0;
+				vertexPosition.z -=  distortionEffect/45.0;
+				vertexPosition.x +=  distortionEffect/20.0;
+				vertexPosition.y +=  distortionEffect/20.0;
 
 
-				gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 0.7);
+				//gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 0.7);
+				gl_Position = vec4(vertexPosition, 0.9);
 
 				// set the varyings
         // thanks to the texture matrix we will be able to calculate accurate texture coords
         // so that our texture will always fit our plane without being distorted
 				vTextureCoord = (uTextureMatrix0 * vec4(aTextureCoord, 0.0, 0.0)).xy;
-				vVertexPosition = vertexPosition;
+
+
+				//vTextureCoord = aTextureCoord.xy;
+				//vVertexPosition = vertexPosition;
 			}
         </script>
         <script id="plane-fs" type="x-shader/x-fragment" defer>
-			#ifdef GL_ES
-			precision lowp float;
-			#endif
+			//#ifdef GL_ES
+			precision highp float;
+			//#endif
 
 			// get our varyings
-			varying vec3 vVertexPosition;
+			//varying vec3 vVertexPosition;
 			varying vec2 vTextureCoord;
 
 			// the uniform we declared inside our javascript
@@ -155,13 +249,13 @@
 				const float PI = 3.141592;
 
 				textureCoord.x += (
-					sin(textureCoord.x * 20.0 + ((uTime * (PI / 60.0)) * 0.077))
-					+ sin(textureCoord.y * 20.0 + ((uTime * (PI / 60.0)) * 0.077))
-					) * 0.0355;
+					sin(textureCoord.x * 20.0 + ((uTime * (PI / 100.0)) * 0.077))
+					+ sin(textureCoord.y * 20.0 + ((uTime * (PI / 100.0)) * 0.077))
+					) * 0.0455;
 
 				textureCoord.y += (
-					sin(textureCoord.y * 20.0 + ((uTime * (PI / 60.0)) * 0.077))
-					+ sin(textureCoord.x * 20.0 + ((uTime * (PI / 60.0)) * 0.077))
+					sin(textureCoord.y * 20.0 + ((uTime * (PI /100.0)) * 0.077))
+					+ sin(textureCoord.x * 20.0 + ((uTime * (PI / 100.0)) * 0.077))
 					) * 0.0375;
 /*
 				textureCoord.x += (
@@ -189,5 +283,6 @@
 
 
 		<script src="https://www.curtainsjs.com/build/curtains.min.js" type="text/javascript"></script>
+
 </footer>
 </html>

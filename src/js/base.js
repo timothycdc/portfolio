@@ -2,8 +2,60 @@ import '../css/base.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(gsap, ScrollTrigger);
+import Marquee3k from 'marquee3000';
+import { DateTime } from "luxon";
+
+
 
 import TypeIt from "typeit";
+
+
+
+
+window.onbeforeunload = function() {
+    window.scrollTo(0, 0);
+}
+
+
+init();
+gsap.set('.follower', { xPercent: -50, yPercent: -50 })
+gsap.set('.cursor', { xPercent: -50, yPercent: -50 })
+
+
+function startTime() {
+    let t = DateTime.local().setZone("Europe/London").toLocaleString(DateTime.TIME_24_WITH_SECONDS);
+    let t2 = DateTime.local().setZone("Asia/Kuala_Lumpur").toLocaleString(DateTime.TIME_24_WITH_SECONDS);
+
+
+    document.getElementById('lon').innerHTML = t;
+    document.getElementById('mys').innerHTML = t2;
+    setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+    if (i < 10) { i = "0" + i }; // add zero in front of numbers < 10
+    return i;
+}
+
+
+
+
+
+window.onload = function() {
+    startTime();
+    setTimeout(function() {
+
+        document.body.style.overflow = 'auto';
+        gsap.to('.loaderbadge', { duration: 0.5, opacity: 0, ease: 'power4' })
+
+
+        // gsap.to('ul.transition li', { delay: 0.5, duration: 0.7, scaleY: 0, transformOrigin: "100% top", stagger: 0.05, ease: 'power2' })
+        gsap.to('#loadwrapper', { delay: 0.5, duration: 0.7, top: (-2 * window.innerHeight), ease: 'power2' })
+        Marquee3k.init()
+        document.body.style.overflow = 'auto';
+    }, 100)
+
+}
 
 
 
@@ -31,9 +83,10 @@ function createPlane(webGLCurtain) {
         vertexShaderID: "plane-vs", // our vertex shader ID
         fragmentShaderID: "plane-fs", // our framgent shader ID
         //crossOrigin: "", // codepen specific
-        widthSegments: 80,
-        heightSegments: 80, // we now have 20*20*6 = 2400 vertices !
+        widthSegments: 10,
+        heightSegments: 10, // we now have 20*20*6 = 2400 vertices !
         alwaysDraw: true,
+        watchScroll: false,
         uniforms: {
             time: {
                 name: "uTime", // uniform name that will be passed to our shaders
@@ -76,20 +129,24 @@ function createPlane(webGLCurtain) {
         // we could have done  it directly in the initial params
         plane.setPerspective(70);
 
+
         // listen our mouse/touch events on the whole document
         // we will pass the plane as second argument of our function
         // we could be handling multiple planes that way
         document.body.addEventListener("mousemove", function(e) {
             handleMovement(e, plane);
+            gsap.to('.follower', { duration: 1, opacity: 0.8 })
+            gsap.to('.cursor', { duration: 1, opacity: 1 })
+            gsap.to('.cursor', { ease: 'power3', duration: 0.2, x: e.clientX, y: e.clientY });
+            gsap.to('.follower', { ease: 'power3', duration: 0.7, x: e.clientX, y: e.clientY });
 
         });
 
         document.body.addEventListener("touchmove", function(e) {
             handleMovement(e, plane);
 
+
         });
-
-
 
 
 
@@ -97,18 +154,15 @@ function createPlane(webGLCurtain) {
     }).onRender(function() {
         // update our time uniform value
         plane.uniforms.time.value++;
+        //console.log(plane.uniforms.time.value)
 
         // continually decrease mouse strength
         plane.uniforms.mouseStrength.value = Math.max(0, plane.uniforms.mouseStrength.value - 0.01);
+
         //gsap.to(plane.uniforms.mouseStrength, { repeat: -1, duration: 1, value: 0 })
-        // resize in case
-        plane.updatePosition();
-        // innerWidth = window.innerWidth;
-        // innerHeight = window.innerHeight;
-        // // console.log(canvas.getBoundingClientRect());
-        // // console.log(innerWidth, innerHeight);
-        // plane.uniforms.resolution.value = [innerWidth, innerHeight];
-        // //plane.uniforms.resolution.value = [canvas.getBoundingClientRect()];
+
+        //plane.updatePosition();
+
 
     });
 
@@ -119,8 +173,9 @@ function createPlane(webGLCurtain) {
 
         // touch event
         if (e.targetTouches) {
-            mousePosition.x = e.targetTouches[0].clientX;
-            mousePosition.y = e.targetTouches[0].clientY;
+            mousePosition.x = e.changedTouches[0].clientX;
+            mousePosition.y = e.changedTouches[0].clientY;
+
         }
         // mouse event
         else {
@@ -132,11 +187,11 @@ function createPlane(webGLCurtain) {
         var mouseCoords = plane.mouseToPlaneCoords(mousePosition.x, mousePosition.y);
         // update our mouse position uniform
 
-        gsap.to(plane.uniforms.mousePosition.value, { duration: 9.0, 0: mouseCoords.x, 1: mouseCoords.y })
+        gsap.to(plane.uniforms.mousePosition.value, { ease: 'back', duration: 15.0, 0: mouseCoords.x, 1: mouseCoords.y })
 
         // reassign mouse strength
         // plane.uniforms.mouseStrength.value = 1;
-        gsap.to(plane.uniforms.mouseStrength, { duration: 5, value: 1 })
+        gsap.to(plane.uniforms.mouseStrength, { ease: 'ease', duration: 6, value: 1 })
     }
 
 
@@ -144,72 +199,96 @@ function createPlane(webGLCurtain) {
 }
 
 
+function init() {
 
-window.onload = function() {
+
     var webGLCurtain = new Curtains({
         container: "canvas"
+
     });
+
+    gsap.to('canvas', { duration: 3, opacity: 1, ease: 'power4' })
 
     createPlane(webGLCurtain);
 
-    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-    if (isSafari) {
-        var myInterval = setInterval(function() {
+    // var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-            gsap.to('canvas', { duration: 1.2, opacity: 0 })
+    // if (isSafari) {
+    //     var myInterval = setInterval(function() {
 
-
-            setTimeout(function() {
-                webGLCurtain.dispose();
-                createPlane(webGLCurtain);
-                gsap.to('canvas', { duration: 1, opacity: 1 })
-            }, 1000)
-        }, 100000);
-    }
+    //         //gsap.to('canvas', { duration: 0.7, opacity: 0, ease: 'power4' })
 
 
-
-
-};
-
-
-
-var spanName = document.getElementById('surname');
-spanName.addEventListener('mouseover', function() {
-    spanName.classList.toggle('reveal-surname')
-    spanName.innerHTML = '钟 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-    spanName.style.paddingBottom = '40px';
-})
-spanName.addEventListener('mouseout', function() {
-    spanName.classList.toggle('reveal-surname')
-    spanName.innerHTML = 'Chung'
-    spanName.style.paddingBottom = 'unset';
-
-})
+    //         // setTimeout(function() {
+    //         //     webGLCurtain.dispose();
+    //         //     createPlane(webGLCurtain);
+    //         //     gsap.to('canvas', { duration: 2, opacity: 1, ease: 'power4' })
+    //         // }, 700)
+    //     }, 5000);
+    // }
 
 
 
 
-new TypeIt("#herotext", {
-        speed: 100,
+
+
+
+    // new TypeIt("#herotext", {
+    //         speed: 100,
+    //         loop: true,
+    //     })
+    //     .type("Frontend developer~ ", { delay: 300 })
+    //     .pause(3600)
+    //     .move(-12, { speed: 100, delay: 100 })
+    //     .delete(8)
+    //     .type('(Aspiring Full-Stack)', { delay: 300 })
+    //     .move(12, { speed: 100, delay: 100 })
+    //     .pause(3600)
+    //     .delete()
+    //     .type("Multi-instrumentalist~ ", { delay: 300 })
+    //     .pause(3600)
+    //     .delete()
+    //     .type("Engineer~ ", { delay: 300 })
+    //     .pause(3600)
+    //     .delete()
+    //     .type("Designer~ ", { delay: 300 })
+    //     .pause(3600)
+    //     .delete()
+    //     .go();
+
+}
+
+
+
+var menuTitle = new TypeIt("#typerline", {
+        speed: 60,
         loop: true,
     })
-    .type("Frontend developer~ ", { delay: 300 })
-    .pause(3600)
-    .move(-12, { speed: 100, delay: 100 })
+    .type("frontend dev~ ", { delay: 0 })
+    .pause(200)
+    .move(-6, { speed: 60, delay: 2000 })
     .delete(8)
-    .type('(Aspiring Full-Stack)', { delay: 300 })
-    .move(12, { speed: 100, delay: 100 })
-    .pause(3600)
+    .type('(aspiring fullstack)', { delay: 0 })
+    .move(5, { speed: 60, delay: 0 })
+    .pause(2000)
     .delete()
-    .type("Multi-instrumentalist~ ", { delay: 300 })
-    .pause(3600)
+    .type("musician~ ", { delay: 0 })
+    .pause(2000)
     .delete()
-    .type("Engineer~ ", { delay: 300 })
-    .pause(3600)
+    .type("engineer~ ", { delay: 0 })
+    .pause(2000)
     .delete()
-    .type("Designer~ ", { delay: 300 })
-    .pause(3600)
+    .type("designer~ ", { delay: 0 })
+    .pause(2000)
+    .delete()
+    .type("photographer~ ", { delay: 0 })
+    .pause(2000)
+    .delete()
+    .type("data sci~ ", { delay: 0 })
+    .pause(2000)
+    .delete()
+    .type("machine learning~ ", { delay: 0 })
+    .pause(2000)
     .delete()
     .go();

@@ -189,6 +189,7 @@ section.content-wrapper {
     height: 100vh !important;
     background-color: #bec6d2;
     overflow: auto;
+    position: fixed;
 }
 
 canvas {
@@ -197,7 +198,7 @@ canvas {
 }
 
 .plane {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

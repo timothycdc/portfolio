@@ -1,4 +1,3 @@
-import '../css/test1.css';
 const glsl = require('glslify');
 
 const style = 'color:red; font-size:30px; font-weight: bold; -webkit-text-stroke: 1px black;'
@@ -193,7 +192,7 @@ void main() {
   // You can find more combos in the examples from IQ:
   // https://iquilezles.org/www/articles/palettes/palettes.htm
   // Experiment with these!
-  vec3 brightness = vec3(0.5, 0.5, 0.5);
+  vec3 brightness = vec3(0.2, 0.4, 0.6);
   vec3 contrast = vec3(0.3, 0.3, 0.3);
   vec3 oscilation = vec3(1.2, 1, 0.1);
   vec3 phase = vec3(0.1, 0.05, 0);
@@ -214,17 +213,19 @@ class Scene {
         this.x = 0
         this.y = 0
         this.mouseX = 0;
+        this.height = window.innerHeight;
         this.mouseY = 0;
         this.windowX = Math.round(window.innerWidth / 2);
         this.windowY = Math.round(window.innerHeight / 2);
+        this.safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
         this.camera = new THREE.PerspectiveCamera(
-            90,
+            20,
             window.innerWidth / window.innerHeight,
             0.1,
             1000
         );
-        this.camera.position.set(0, 0, 4);
+        this.camera.position.set(0, 0, 30);
 
         this.scene = new THREE.Scene();
 
@@ -266,12 +267,12 @@ class Scene {
     addCanvas() {
         const canvas = this.renderer.domElement;
         canvas.classList.add('webgl');
-        var el = document.getElementById('blob')
+        var el = document.getElementById('canvas-two')
         el.appendChild(canvas);
     }
 
     addElements() {
-        const geometry = new THREE.IcosahedronBufferGeometry(1, 64);
+        const geometry = new THREE.IcosahedronBufferGeometry(2, 32);
         const material = new THREE.ShaderMaterial({
             vertexShader,
             fragmentShader,
@@ -295,15 +296,27 @@ class Scene {
     }
 
     resize() {
+
+
         let width = window.innerWidth;
         let height = window.innerHeight;
-        this.windowX = Math.round(window.innerWidth / 2);
-        this.windowY = Math.round(window.innerHeight / 2);
 
-        this.camera.aspect = width / height;
-        this.renderer.setSize(width, height);
+
+        this.windowX = Math.round(window.innerWidth / 2);
+        //this.windowY = Math.round(window.innerHeight / 2);
+
+
+        this.camera.aspect = width / this.height;
+        this.renderer.setSize(width, this.height);
+
+
 
         this.camera.updateProjectionMatrix();
+
+
+
+
+
     }
 
     animate() {
@@ -324,13 +337,13 @@ class Scene {
         this.mesh.material.uniforms.uAmplitude.value = settings.amplitude;
         this.mesh.material.uniforms.uIntensity.value = settings.intensity;
 
-        const ct = 0.07;
+        const ct = 0.05;
 
 
         this.x += (this.mouseX - this.x) * ct;
-        this.camera.position.x = this.x / 200
+        this.camera.position.x = this.x / 100
         this.y += (this.mouseY - this.y) * ct;
-        this.camera.position.y = this.y / 200
+        this.camera.position.y = this.y / 100
 
 
         //this.camera.position.x += (this.mouseX - this.camera.position.x) * ct;
