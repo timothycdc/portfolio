@@ -45,15 +45,40 @@ window.onload = function() {
     startTime();
     setTimeout(function() {
 
-        document.body.style.overflow = 'auto';
+
         gsap.to('.loaderbadge', { duration: 0.5, opacity: 0, ease: 'power4' })
 
 
         // gsap.to('ul.transition li', { delay: 0.5, duration: 0.7, scaleY: 0, transformOrigin: "100% top", stagger: 0.05, ease: 'power2' })
         gsap.to('#loadwrapper', { delay: 0.5, duration: 0.7, top: (-2 * window.innerHeight), ease: 'power2' })
         Marquee3k.init()
+
+
+        document.body.addEventListener('resize', function() {
+            Marquee3k.refreshAll();
+        })
+
+
+
         document.body.style.overflow = 'auto';
     }, 100)
+    let displaytext = document.querySelectorAll(".interest-bar")
+    displaytext.forEach(bar => {
+
+
+
+        bar.addEventListener("click", function() {
+
+            bar.classList.toggle('interest-active');
+            // bar.classList.toggle('interest-inactive');
+
+            let content = bar.nextElementSibling;
+            content.classList.toggle('interest-hide');
+
+            let entry = bar.parentElement;
+            entry.classList.toggle('open-entry')
+        });
+    })
 
 }
 
@@ -141,12 +166,14 @@ function createPlane(webGLCurtain) {
             gsap.to('.follower', { ease: 'power3', duration: 0.7, x: e.clientX, y: e.clientY });
 
         });
-
+        // let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        // if (!(isSafari)) {
         document.body.addEventListener("touchmove", function(e) {
             handleMovement(e, plane);
 
 
         });
+        //}
 
 
 
@@ -172,26 +199,29 @@ function createPlane(webGLCurtain) {
     function handleMovement(e, plane) {
 
         // touch event
-        if (e.targetTouches) {
-            mousePosition.x = e.changedTouches[0].clientX;
-            mousePosition.y = e.changedTouches[0].clientY;
+        if (window.innerWidth > 600) {
+            if (e.targetTouches) {
+                // mousePosition.x = e.changedTouches[0].clientX;
+                // mousePosition.y = e.changedTouches[0].clientY;
 
+            }
+            // mouse event
+            else {
+                mousePosition.x = e.clientX;
+                mousePosition.y = e.clientY;
+
+            }
+
+            // convert our mouse/touch position to coordinates relative to the vertices of the plane
+            var mouseCoords = plane.mouseToPlaneCoords(mousePosition.x, mousePosition.y);
+            // update our mouse position uniform
+
+            gsap.to(plane.uniforms.mousePosition.value, { ease: 'back', duration: 15.0, 0: mouseCoords.x, 1: mouseCoords.y })
+
+            // reassign mouse strength
+            // plane.uniforms.mouseStrength.value = 1;
+            gsap.to(plane.uniforms.mouseStrength, { ease: 'ease', duration: 6, value: 1 })
         }
-        // mouse event
-        else {
-            mousePosition.x = e.clientX;
-            mousePosition.y = e.clientY;
-        }
-
-        // convert our mouse/touch position to coordinates relative to the vertices of the plane
-        var mouseCoords = plane.mouseToPlaneCoords(mousePosition.x, mousePosition.y);
-        // update our mouse position uniform
-
-        gsap.to(plane.uniforms.mousePosition.value, { ease: 'back', duration: 15.0, 0: mouseCoords.x, 1: mouseCoords.y })
-
-        // reassign mouse strength
-        // plane.uniforms.mouseStrength.value = 1;
-        gsap.to(plane.uniforms.mouseStrength, { ease: 'ease', duration: 6, value: 1 })
     }
 
 
