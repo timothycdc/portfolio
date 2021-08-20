@@ -238,7 +238,7 @@
         --menu-square-length: 80px;
         --scroll-square-length: 250px;
         --time-box-length: 220px;
-        --app-height: 100%;
+        --app-height: 800px;
     }
     
     html,
@@ -1195,10 +1195,9 @@
         .cursor {
             display: none;
         }
-        /* #canvas,
-        canvas {
-            height: var(--app-height);
-        } */
+        .ig-fix {
+            height: var(--app-height) !important;
+        }
         .homegrid {
             grid-template-columns: [line1] var(--hgrid-padding) [line2] 1fr [line3] 1fr [line4] auto [line5] calc(var(--scroll-square-length) - var(--menu-square-length)) [line6] var(--menu-square-length) [line7] var(--hgrid-padding) [end];
             grid-template-rows: [row1] var(--vgrid-padding) [row2] var(--menu-square-length) [row3] auto [row4] calc(var(--scroll-square-length) - var(--menu-square-length)) [row5] var(--menu-square-length) [row6] var(--vgrid-padding) [row7] 0vh [end];

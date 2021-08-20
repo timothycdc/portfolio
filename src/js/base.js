@@ -52,12 +52,11 @@ window.onload = function() {
         // gsap.to('ul.transition li', { delay: 0.5, duration: 0.7, scaleY: 0, transformOrigin: "100% top", stagger: 0.05, ease: 'power2' })
         gsap.to('#loadwrapper', { delay: 0.5, duration: 0.7, top: (-2 * window.innerHeight), ease: 'power2' })
         Marquee3k.init()
-        const appHeight = () => {
-            const doc = document.documentElement
-            doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+        if (window.innerHeight === window.screen.height && navigator.userAgent.match(/instagram/i)) {
+            var r = document.querySelector(':root');
+            window.alert('INSTAGRAM BROWSER!')
+            r.style.setProperty('--app-height', (window.innerHeight + 'px'))
         }
-        window.addEventListener('resize', appHeight)
-        appHeight()
 
 
         document.body.addEventListener('resize', function() {
