@@ -267,7 +267,7 @@ class Scene {
     addCanvas() {
         const canvas = this.renderer.domElement;
         canvas.classList.add('webgl');
-        var el = document.getElementById('canvas-two')
+        var el = document.getElementById('canvas')
         el.appendChild(canvas);
     }
 

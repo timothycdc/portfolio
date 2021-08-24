@@ -1,4 +1,4 @@
-import '../css/test2.css';
+import '../css/blocks.css';
 
 
 const rot = 2.2

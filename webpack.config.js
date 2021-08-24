@@ -32,15 +32,15 @@ const htmlPluginEntries = templateFiles.map((template) => new HTMLWebpackPlugin(
 
 module.exports = {
     entry: {
-        app: path.resolve(environment.paths.source, 'js', 'index.js'),
+        index: path.resolve(environment.paths.source, 'js', 'index.js'),
         test0: path.resolve(environment.paths.source, 'js', 'test0.js'),
         test1: path.resolve(environment.paths.source, 'js', 'test1.js'),
         test2: path.resolve(environment.paths.source, 'js', 'test2.js'),
-        test3: path.resolve(environment.paths.source, 'js', 'test3.js'),
-        test4: path.resolve(environment.paths.source, 'js', 'test4.js'),
-        base: path.resolve(environment.paths.source, 'js', 'base.js'),
-        base2: path.resolve(environment.paths.source, 'js', 'base2.js'),
-        testx: path.resolve(environment.paths.source, 'js', 'testx.js'),
+        liquid: path.resolve(environment.paths.source, 'js', 'liquid.js'),
+        blocks: path.resolve(environment.paths.source, 'js', 'blocks.js'),
+        oldindex: path.resolve(environment.paths.source, 'js', 'oldindex.js'),
+
+        blob: path.resolve(environment.paths.source, 'js', 'blob.js'),
 
     },
     output: {

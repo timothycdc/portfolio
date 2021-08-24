@@ -1,4 +1,4 @@
-import '../css/test3.css';
+import '../css/liquid.css';
 import { gsap } from 'gsap';
 import TypeIt from "typeit";
 

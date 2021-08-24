@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,59 +5,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="../js/base2.js" defer></script>
-    <!--script src="../js/testx.js" defer></script-->
-    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <script src="../js/liquid.js" defer></script>
+    <script>
+        history.scrollRestoration = "manual"
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/liquid
+	.css">
 
     <title>Document</title>
 
 </head>
 
+<body>
 
 
 
+    <div class='main' data-scroll-container>
+        <div class='bg' data-scroll-section>
 
-<body data-barba ="wrapper" >
+            <div id="canvas">
 
-<div class = 'container' data-barba='container' data-barba-namespace ='home'>
-
-
-
-
-
-        <section class="content-wrapper zero" >
-            <div class='content'>
-                 <h1 >One</h1>
-				 <a href = '../base.html'>BaCK</a>
-                <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi quos, ratione deserunt natus exercitationem molestias repellendus suscipit odio labore temporibus impedit hic, obcaecati excepturi laborum distinctio nesciunt repudiandae
-                    aliquid?</p>
+            </div>
+            <div class="plane">
+                <img src="images/photo1.jpg" crossorigin="anonymous" />
             </div>
 
-        </section>
+        </div>
 
-        <section class="content-wrapper one" >
-            <div class='content'>
-                <h1>Two</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum modi quos, ratione deserunt natus exercitationem molestias repellendus suscipit odio labore temporibus impedit hic, obcaecati excepturi laborum distinctio nesciunt repudiandae
-                    aliquid?</p>
+
+
+
+
+        <section class="content-wrapper zero" data-scroll-section>
+            <div class='content' data-scroll>
+                <div class='firstwrap' data-scroll>
+                    <h1>LIQUIDY</h1>
+                   
+                </div>
+
             </div>
         </section>
 
 
 
 
-</div>
+    </div>
 
 
 
 
 
 
-        
 
 </body>
 <footer>
-		<script id="plane-vs" type="x-shader/x-vertex " defer>
+	<script id="plane-vs" type="x-shader/x-vertex " defer>
 			#ifdef GL_ES
 			precision lowp float;
 			#endif
@@ -95,7 +96,7 @@
 				float distanceFromMouse = distance(uMousePosition, vec2(vertexPosition.x, vertexPosition.y));
 
 				// this will define how close the ripples will be from each other. The bigger the number, the more ripples you'll get
-				float rippleFactor = 4.0;
+				float rippleFactor = 3.0;
 				// calculate our ripple effect
 				float rippleEffect = cos(rippleFactor * (distanceFromMouse - (uTime / 200.0)));
 
@@ -103,13 +104,12 @@
 				float distortionEffect = rippleEffect * uMouseStrength;
 
 				// apply it to our vertex position
-				vertexPosition.z -=  distortionEffect/45.0;
-				vertexPosition.x +=  distortionEffect/20.0;
-				vertexPosition.y +=  distortionEffect/20.0;
+				vertexPosition.z -=  distortionEffect/ 15.0;
+				vertexPosition.x +=  distortionEffect/25.0;
+				vertexPosition.y +=  distortionEffect/25.0;
 
 
-				//gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 0.7);
-				gl_Position = vec4(vertexPosition, 0.7);
+				gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 0.7);
 
 				// set the varyings
         // thanks to the texture matrix we will be able to calculate accurate texture coords
@@ -144,13 +144,13 @@
 				const float PI = 3.141592;
 
 				textureCoord.x += (
-					sin(textureCoord.x * 20.0 + ((uTime * (PI / 100.0)) * 0.077))
-					+ sin(textureCoord.y * 20.0 + ((uTime * (PI / 100.0)) * 0.077))
-					) * 0.0455;
+					sin(textureCoord.x * 20.0 + ((uTime * (PI / 60.0)) * 0.077))
+					+ sin(textureCoord.y * 20.0 + ((uTime * (PI / 60.0)) * 0.077))
+					) * 0.0355;
 
 				textureCoord.y += (
-					sin(textureCoord.y * 20.0 + ((uTime * (PI /100.0)) * 0.077))
-					+ sin(textureCoord.x * 20.0 + ((uTime * (PI / 100.0)) * 0.077))
+					sin(textureCoord.y * 20.0 + ((uTime * (PI / 60.0)) * 0.077))
+					+ sin(textureCoord.x * 20.0 + ((uTime * (PI / 60.0)) * 0.077))
 					) * 0.0375;
 /*
 				textureCoord.x += (
@@ -177,6 +177,7 @@
         </script>
 
 
-		<script src="https://www.curtainsjs.com/build/curtains.min.js" type="text/javascript"></script>
+    <script src="https://www.curtainsjs.com/build/curtains.min.js" type="text/javascript"></script>
 </footer>
+
 </html>
