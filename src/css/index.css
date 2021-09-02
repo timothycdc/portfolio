@@ -254,7 +254,7 @@ body {
     /* scroll-behavior: smooth; */
 }
 
-.main {
+main {
     overflow-x: hidden;
 }
 
@@ -455,8 +455,10 @@ canvas {
     transition: 0.2s ease all;
 }
 
-.home-menu-square:hover {
-    background-color: #f892a1 !important;
+@media screen and (min-width: 800px) {
+    .home-menu-square:hover {
+        background-color: #f892a1 !important;
+    }
 }
 
 .home-menu-square p {
@@ -478,23 +480,35 @@ canvas {
     display: flex;
     flex-direction: column;
     text-decoration: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav {
-    margin-top: 40px;
     padding: 40px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav a {
     text-decoration: none !important;
     font-family: OpenSauceOne, sans-serif;
     color: #20243a;
+    transition: 0.1s ease all;
 }
 
 .nav li {
     font-size: 4rem;
     font-weight: 700;
+}
+
+@media screen and (min-width: 800px) {
+    .nav a:hover {
+        color: #6fa0b8;
+    }
 }
 
 .menu-footer {
@@ -511,7 +525,18 @@ canvas {
 }
 
 .work-title-color {
-    color: #20243a
+    color: #20243a;
+}
+
+.contact-title-color {
+    color: #20243a;
+}
+
+.contact-wrapper {
+    border-bottom: 1px solid currentColor;
+    border-top: 1px solid currentColor;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .gallery-title-color {
@@ -565,9 +590,8 @@ canvas {
     flex-direction: column;
     font-family: 'JetBrains Mono', monospace;
     color: #fffff5;
-    letter-spacing: 1px;
     text-align: left;
-    font-weight: 300;
+    font-weight: 400;
     transform: translateY(-20px);
 }
 
@@ -609,9 +633,9 @@ canvas {
 .main-title svg {
     fill: #f892a1;
     margin: 20px 20px 0px 20px;
-    width: 100px;
-    height: 100px;
-    animation: 30s rotate infinite linear;
+    width: 80px;
+    height: 80px;
+    /* animation: 30s rotate infinite linear; */
 }
 
 #down-arrow-container {
@@ -828,6 +852,8 @@ canvas {
     background-color: #6fa0b8;
 }
 
+.interestbox {}
+
 .box-marquee {
     color: #fffff5;
     font-family: 'JetBrains Mono', monospace;
@@ -901,6 +927,8 @@ canvas {
 
 .two .content {
     padding: 100px 10px;
+    max-width: 1200px;
+    margin: 0px auto;
 }
 
 .work {
@@ -911,7 +939,7 @@ canvas {
 }
 
 .contact {
-    padding: 10px !important
+    padding: 0px !important
 }
 
 .work-subtitle {
@@ -994,6 +1022,25 @@ canvas {
     font-family: OpenSauceOne, sans-serif;
 }
 
+.contact-content {
+    font-size: 1rem;
+    margin: 10px;
+    display: block;
+    font-weight: 400;
+    height: auto;
+    width: auto;
+    font-family: OpenSauceOne, sans-serif;
+}
+
+.coming-soon {
+    font-size: 0.8rem;
+    color: #20243a;
+}
+
+.not-yet {
+    text-decoration: line-through;
+}
+
 .work:nth-last-of-type(1) {
     border-bottom: 1px solid #20243a;
 }
@@ -1010,7 +1057,7 @@ canvas {
 }
 
 .interests {
-    background-color: #f892a1;
+    background-color: #dfdbc5;
     display: block;
     min-height: 300px;
     box-shadow: 10px 10px 0 0px #9f66d1;
@@ -1140,6 +1187,8 @@ canvas {
 
 .experiments .content {
     padding: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .experiment {
@@ -1251,7 +1300,7 @@ canvas {
 }
 
 .gallery li {
-    height: 35vh;
+    height: 30vh;
     flex-grow: 2;
     margin: 2vmin;
 }
@@ -1266,7 +1315,8 @@ canvas {
 
 @media (max-aspect-ratio: 1/1) {
     .gallery li {
-        height: 30vh;
+        height: 17vh;
+        margin: 1.5vmin
     }
 }
 
@@ -1337,10 +1387,14 @@ canvas {
         line-height: 1.8rem;
     }
     .interests .content,
-    .experiments .content,
     .about-me .content {
         padding: 25px;
         padding-bottom: 50px;
+    }
+    .experiments .content {
+        padding: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     .two {
         padding: 30px 10px;
@@ -1396,6 +1450,10 @@ canvas {
         border-radius: 50%;
         margin: 10px 0px 15px 0px;
         border: 1px solid #20243a
+    }
+    .contact-content {
+        font-size: 0.8rem;
+        line-height: 1rem;
     }
     .work-content {
         font-size: 1rem;
