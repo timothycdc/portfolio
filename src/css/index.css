@@ -630,14 +630,10 @@ canvas {
     font-size: 1.6rem;
 }
 
-#typertext {
-    display: block;
-    margin: auto 5px;
-}
 
 #typerline {
-    /* background-color: #fffff5; */
-
+    display: block;
+    font-size: 1rem;
 }
 
 .main-title {
@@ -908,10 +904,6 @@ canvas {
     background-color: #f892a1;
 }
 
-.topbar{
-    height: 1.3rem;
-
-}
 
 
 
@@ -1653,6 +1645,24 @@ canvas {
 }
 
 @media screen and (max-width: 600px) {
+    .interests .content,
+    .about-me .content {
+        padding: 20px 20px 30px 20px
+    }
+    .experiments .content {
+        padding: 35px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .contacts .content {
+        padding: 35px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .firstmarq{
+        margin-left: 20px;
+    }
 
     .gallery li .image-overlay h1{
         font-size: 1rem;
@@ -1754,7 +1764,8 @@ canvas {
     }
     .rotator-index-dark,
     .rotator-index {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        letter-spacing: 3px;
     }
     .underline-right::after {
         border-bottom: 3px solid #e15232;
@@ -1881,6 +1892,16 @@ canvas {
 
 
 @media screen and (max-width: 400px) {
+    .rotator-index-dark,
+    .rotator-index {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+
+    .work-subtitle{
+        margin-right: 5px;
+        margin-top: 10px;
+    }
     .nav {
         margin-top: 70px;
         font-size: 2rem;
@@ -1898,7 +1919,8 @@ canvas {
     }
     .interest-entry p,
     .about-me p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        line-height: 1.5rem;
     }
     .home-menu-square {
         font-size: 1.5rem;
@@ -1906,8 +1928,21 @@ canvas {
 }
 
 @media screen and (max-width: 320px) {
+    .interests .content,
+    .about-me .content {
+        padding: 20px 10px 30px;
+    }
+    .work-subtitle{
+        display: none;
+    }
+
+    .firstmarq{
+        margin-left: 10px;
+    }
+    #typerline{
+        font-size: 0.8rem;
+    }
     .home-menu-square {
-        top: 20px;
         margin: 10px;
         right: 20px;
     }

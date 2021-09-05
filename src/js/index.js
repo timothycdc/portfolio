@@ -66,11 +66,13 @@ window.onload = function() {
 
 
         }
-
-
-        document.body.addEventListener('resize', function() {
+        window.addEventListener('resize', function() {
             Marquee3k.refreshAll();
         })
+
+
+
+
         let button = document.querySelector('.home-menu-square');
         let menu = document.querySelector('#menu-overlay')
         button.addEventListener('click', function() {
@@ -472,3 +474,4 @@ var menuTitle = new TypeIt("#typerline", {
 //     .pause(2000)
 //     .delete()
 //     .go();
+
