@@ -902,6 +902,10 @@ canvas {
 .home-title {
     color: #20243a;
     background-color: #f892a1;
+
+    position: absolute !important;
+    z-index: 1;
+    width: 100%;
 }
 
 

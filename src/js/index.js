@@ -55,16 +55,65 @@ window.onload = function() {
         gsap.to('#loadwrapper', { delay: 1, duration: 1, display: "none" })
 
         Marquee3k.init()
-        if (navigator.userAgent.match(/instagram/i)) {
+       // window.alert(navigator.userAgent)
+        if ((navigator.userAgent.match(/instagram/i)) || (navigator.userAgent.match(/linkedinapp/gi))) {
             var r = document.querySelector(':root');
             //window.alert('INSTAGRAM BROWSER!')
             r.style.setProperty('--app-height', (window.innerHeight + 'px'))
             var c = document.querySelector('canvas')
             var c2 = document.querySelector('#canvas')
+            var hg = document.querySelector('.homegrid')
             c.classList.add('ig-fix')
             c2.classList.add('ig-fix')
+            hg.classList.add('ig-fix')
+
+            // let kl = document.querySelector('.solid')
+            // kl.innerHTML = 'X';
+            if (navigator.userAgent.match(/instagram/i)) {
+                var menuTitle = new TypeIt("#typerline", {
+                    speed: 50,
+                    loop: true
+                
+                })
+                .type("Hey! You came here from Instagram.", { delay: 0 })
+                .pause(5000)
+                .delete()
+                .type("This browser is buggy, use your native one instead.")
+                .pause(5000)
+                .delete()
+                .type("Open this website in another browser. You'll probably find the option in one the menus. Thanks!")
+                .pause(5000)
+                .delete()
+
+                .go()
+            };
+
+            if (navigator.userAgent.match(/linkedinapp/i)) {
+                var menuTitle = new TypeIt("#typerline", {
+                    speed: 50,
+                    loop: true
+                
+                })
+                .type("Hey! You're using Linkedin aren't you?", { delay: 0 })
+                .pause(5000)
+                .delete()
+                .type("This browser is buggy, use your native one instead.")
+                .pause(5000)
+                .delete()
+                .type("Open this website in another browser. You'll probably find the option in one the menus. Thanks!")
+                .pause(5000)
+                .delete()
+
+                .go()
+            };
 
 
+
+            
+
+
+        } else {
+            normalType()
         }
         window.addEventListener('resize', function() {
             Marquee3k.refreshAll();
@@ -428,7 +477,7 @@ function init() {
 
 }
 
-
+function normalType(){
 var menuTitle = new TypeIt("#typerline", {
     speed: 100,
     loop: true
@@ -442,6 +491,7 @@ var menuTitle = new TypeIt("#typerline", {
 .delete()
 
 .go();
+}
 
 // var menuTitle = new TypeIt("#typerline", {
 //         speed: 60,
