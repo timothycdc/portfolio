@@ -79,15 +79,39 @@ window.onload = function() {
                 menu.classList.toggle('menu-inactive');
                 gsap.to(button, { duration: 0.5, backgroundColor: '#20243a', color: '#FFFFF5' });
                 button.firstElementChild.innerHTML = 'X'
+                document.body.style.overflowY = 'hidden';
             } else {
                 setTimeout(function() { menu.classList.toggle('menu-inactive'); }, 500);
                 gsap.to('#menu-overlay', { duration: 0.5, x: "100vw", ease: 'power3' });
                 gsap.to(button, { duration: 0.5, backgroundColor: '#FFFFF5', color: '#20243a' });
                 button.firstElementChild.innerHTML = 'i'
+                document.body.style.overflowY = 'auto';
             }
 
 
         })
+
+
+        let navlinks = document.querySelectorAll('.nav li a')
+        navlinks.forEach(element => {
+            element.addEventListener('click', function() {
+            if (menu.classList.contains('menu-inactive')) {
+                gsap.to('#menu-overlay', { duration: 0.5, x: "0vw", ease: 'power3' });
+                menu.classList.toggle('menu-inactive');
+                gsap.to(button, { duration: 0.5, backgroundColor: '#20243a', color: '#FFFFF5' });
+                button.firstElementChild.innerHTML = 'X'
+                document.body.style.overflowY = 'hidden';
+            } else {
+                setTimeout(function() { menu.classList.toggle('menu-inactive'); }, 500);
+                gsap.to('#menu-overlay', { duration: 0.5, x: "100vw", ease: 'power3' });
+                gsap.to(button, { duration: 0.5, backgroundColor: '#FFFFF5', color: '#20243a' });
+                button.firstElementChild.innerHTML = 'i'
+                document.body.style.overflowY = 'auto';
+            }
+
+
+        })
+    });
 
         document.body.addEventListener('mousedown', function() {
             gsap.to('.follower', { duration: 0.2, width: '25px', height: '25px', ease: 'power3' })
@@ -123,14 +147,23 @@ window.onload = function() {
     }, 100)
     document.body.style.overflowY = 'auto';
     document.body.style.overflowX = 'hidden';
+    //gsap.timeline({
+        //     scrollTrigger: {
+        //         trigger: ".padder-white",
+        //         scrub: 0.2
+
+        //     }
+        // })
+        // .to(".intro, .two", { delay: 0, backgroundColor: "#FFFFF5" , ease: 'power2' })
     gsap.timeline({
             scrollTrigger: {
-                trigger: ".padder-white",
-                scrub: 0.5
+                trigger: ".content-title",
+                scrub: 0.2
 
             }
         })
-        .to(".intro, .two", { duration: 1, backgroundColor: "#FFFFF5" })
+        .to(".home-menu-square", { delay: 0, top: "30px" , ease: 'power2' , border: '2px solid #f892a1' })
+
 
 
 
@@ -394,35 +427,48 @@ function init() {
 }
 
 
-
 var menuTitle = new TypeIt("#typerline", {
-        speed: 60,
-        loop: true,
-    })
-    .type("frontend dev~ ", { delay: 0 })
-    .pause(200)
-    .move(-6, { speed: 60, delay: 2000 })
-    .delete(8)
-    .type('(aspiring fullstack)', { delay: 0 })
-    .move(5, { speed: 60, delay: 0 })
-    .pause(2000)
-    .delete()
-    .type("musician~ ", { delay: 0 })
-    .pause(2000)
-    .delete()
-    .type("engineer~ ", { delay: 0 })
-    .pause(2000)
-    .delete()
-    .type("designer~ ", { delay: 0 })
-    .pause(2000)
-    .delete()
-    .type("photographer~ ", { delay: 0 })
-    .pause(2000)
-    .delete()
-    .type("data sci~ ", { delay: 0 })
-    .pause(2000)
-    .delete()
-    .type("machine learning~ ", { delay: 0 })
-    .pause(2000)
-    .delete()
-    .go();
+    speed: 100,
+    loop: true
+
+})
+.type("Hi, welcome to one of my creations.", { delay: 0 })
+.pause(20000)
+.delete()
+.type("a work in progress?", { delay: 0 })
+.pause(20000)
+.delete()
+
+.go();
+
+// var menuTitle = new TypeIt("#typerline", {
+//         speed: 60,
+//         loop: true,
+//     })
+//     .type("frontend dev~ ", { delay: 0 })
+//     .pause(200)
+//     .move(-6, { speed: 60, delay: 2000 })
+//     .delete(8)
+//     .type('(aspiring fullstack)', { delay: 0 })
+//     .move(5, { speed: 60, delay: 0 })
+//     .pause(2000)
+//     .delete()
+//     .type("musician~ ", { delay: 0 })
+//     .pause(2000)
+//     .delete()
+//     .type("engineer~ ", { delay: 0 })
+//     .pause(2000)
+//     .delete()
+//     .type("designer~ ", { delay: 0 })
+//     .pause(2000)
+//     .delete()
+//     .type("photographer~ ", { delay: 0 })
+//     .pause(2000)
+//     .delete()
+//     .type("data sci~ ", { delay: 0 })
+//     .pause(2000)
+//     .delete()
+//     .type("machine learning~ ", { delay: 0 })
+//     .pause(2000)
+//     .delete()
+//     .go();

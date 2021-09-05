@@ -237,7 +237,7 @@ table {
  :root {
     --hgrid-padding: 25px;
     --vgrid-padding: 25px;
-    --menu-square-length: 80px;
+    --menu-square-length: 70px;
     --scroll-square-length: 250px;
     --time-box-length: 220px;
     --app-height: 800px;
@@ -437,11 +437,11 @@ canvas {
     grid-row-start: row2;
     grid-row-end: row3; */
     /*border: 4px solid #fffff5;*/
-    position: absolute;
+    position: fixed;
     background-color: #fffff5;
     z-index: 10;
     border-radius: 50%;
-    top: 30px;
+    top: 70px;
     margin: 10px;
     right: 30px;
     height: calc(var(--menu-square-length) - 20px);
@@ -453,13 +453,11 @@ canvas {
     justify-content: center;
     flex-direction: row;
     transition: 0.2s ease all;
+    
+
 }
 
-@media screen and (min-width: 800px) {
-    .home-menu-square:hover {
-        background-color: #f892a1 !important;
-    }
-}
+
 
 .home-menu-square p {
     display: block;
@@ -471,9 +469,10 @@ canvas {
 #menu-overlay {
     /*border: 4px solid #fffff5;*/
     background-color: #fffff5;
+
     height: 100vh;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     transform: translateX(100vw);
     z-index: 2;
     overflow: hidden;
@@ -503,12 +502,34 @@ canvas {
 .nav li {
     font-size: 4rem;
     font-weight: 700;
+    border-top: 1px solid currentColor;
+    width: 100%;
+    padding: 10px 3px;
+    list-style: upper-roman;
+}
+
+.nav li:nth-last-of-type(1){
+    border-bottom: 1px solid currentColor;
 }
 
 @media screen and (min-width: 800px) {
     .nav a:hover {
         color: #6fa0b8;
     }
+
+    .contact:hover{
+        transform: scale(1.1)
+    }
+
+
+    .home-menu-square:hover {
+        background-color: #f892a1 !important;
+    }
+
+    .work-title:hover{
+        transform: scale(1.05)
+    }
+
 }
 
 .menu-footer {
@@ -521,23 +542,23 @@ canvas {
     font-size: 5rem;
     padding: 40px 10px;
     font-family: OpenSauceOne, sans-serif;
-    ;
+    
+}
+
+.gallery-subtitle{
+    font-size: 1.3rem;
+    padding: 30px 10px 0px;
 }
 
 .work-title-color {
     color: #20243a;
 }
 
-.contact-title-color {
-    color: #20243a;
-}
 
-.contact-wrapper {
-    border-bottom: 1px solid currentColor;
-    border-top: 1px solid currentColor;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
+
+
+
+
 
 .gallery-title-color {
     color: #e15232;
@@ -615,8 +636,8 @@ canvas {
 }
 
 #typerline {
-    background-color: #fffff5;
-    padding: 2px 8px;
+    /* background-color: #fffff5; */
+
 }
 
 .main-title {
@@ -684,7 +705,7 @@ canvas {
 
 .padder {
     padding: 10px;
-    height: 20px;
+    height: 150px;
 }
 
 .padder-white {
@@ -703,6 +724,7 @@ canvas {
     justify-content: center;
     overflow: hidden;
     margin-top: 100px;
+    padding-bottom: 100px;
 }
 
 .wrap {
@@ -758,6 +780,13 @@ canvas {
     border-bottom: 6px solid currentColor;
     transform: translate(15px, 0px);
 }
+
+/* .contact-underline::after {
+    display: block;
+    content: ' ';
+    border-bottom: 5px solid currentColor;
+    transform: translate(15px, 0px);
+} */
 
 #rotator-star {
     width: 50px;
@@ -864,7 +893,7 @@ canvas {
         justify-content: center; */
     padding: 0px 15px;
     height: 3rem;
-    line-height: 3rem;
+    line-height: 3.1rem;
     font-weight: 300;
     overflow: hidden;
 }
@@ -873,6 +902,18 @@ canvas {
     color: #20243a;
     background-color: #f892a1;
 }
+
+.home-title {
+    color: #20243a;
+    background-color: #f892a1;
+}
+
+.topbar{
+    height: 1.3rem;
+
+}
+
+
 
 .gallery-title {
     color: #fffff5;
@@ -884,7 +925,7 @@ canvas {
     background-color: #5d9f88;
 }
 
-.contact-title {
+.contact-title-marquee {
     color: #fffff5;
     background-color: #20243a;
 }
@@ -898,32 +939,47 @@ canvas {
 .marquee-title {
     padding: 10px 0px;
     font-family: 'Jetbrains Mono', monospace;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     line-height: 1.3rem;
     letter-spacing: 1px;
-    font-weight: 200;
-    border-top: 2px solid #fffff5;
-    border-bottom: 2px solid #fffff5;
+    font-weight: 300;
+    /* border-top: 2px solid #fffff5;
+    border-bottom: 2px solid #fffff5; */
 }
 
 .marquee-title-dark {
     padding: 10px 0px;
     font-family: 'Jetbrains Mono', monospace;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     line-height: 1.3rem;
     letter-spacing: 1px;
-    font-weight: 200;
+    font-weight: 300;/*
     border-top: 2px solid #20243a;
-    border-bottom: 2px solid #20243a;
+    border-bottom: 2px solid #20243a; */
+}
+
+.marquee-title-first {
+    padding: 10px 0px;
+    font-family: OpenSauceOne, sans-serif;
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: 0px;
+    font-weight: 600;
+
+}
+
+.firstmarq{
+    margin-left: 30px;
 }
 
 
 /* SECTION 2 CARD CONTENT WORK */
 
 .two {
-    background: #20243a;
+    background: #fffff5;
     padding: 50px;
 }
+
 
 .two .content {
     padding: 100px 10px;
@@ -938,9 +994,6 @@ canvas {
     flex-direction: row;
 }
 
-.contact {
-    padding: 0px !important
-}
 
 .work-subtitle {
     display: block;
@@ -965,7 +1018,28 @@ canvas {
     text-decoration: none;
     width: fit-content;
     font-family: OpenSauceOne, sans-serif;
+    transition: 0.2s ease all;
 }
+
+
+.contact-title {
+    font-size: 2rem;
+    line-height: 2.2rem;
+    margin: 30px 0px 30px 0px;
+    letter-spacing: 2px;
+    display: block;
+    font-weight: 700;
+    height: auto;
+    text-decoration: none;
+    width: fit-content;
+    font-family: OpenSauceOne, sans-serif;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    padding: 15px 20px;
+}
+
+
+
 
 .work-icon {
     width: 150px;
@@ -991,8 +1065,47 @@ canvas {
     color: #9f66d1
 }
 
+.ig-purple {
+    border-color: #6a28df !important;
+    background-color: #E1306C;
+    color: #fac343;
+    
+}
+
+.spotify-green{
+    background-color: #1DB954;
+    color: #191414;
+    border-color: #fffff5 !important;
+}
+
 .red {
     color: #e15232
+}
+
+
+.gmail-red {
+    background-color: #ffffff;
+    color: #e15232;
+    
+}
+
+.linkedin-blue{
+    color: #fffff5;
+    background-color: #2d79d1;
+
+}
+
+.resume-yellow{
+    background-color: #f7bf25;
+    border-color: #fffff5 !important;
+    color: #20243a;
+}
+
+.github-black{
+    color: #fffff5;
+    background-color: #333333;
+    border-color: #aaaaaa !important;
+
 }
 
 .yellow {
@@ -1022,15 +1135,12 @@ canvas {
     font-family: OpenSauceOne, sans-serif;
 }
 
-.contact-content {
-    font-size: 1rem;
-    margin: 10px;
-    display: block;
-    font-weight: 400;
-    height: auto;
-    width: auto;
-    font-family: OpenSauceOne, sans-serif;
+.work-content .link{
+    position: relative;
+    text-decoration: none;
 }
+
+
 
 .coming-soon {
     font-size: 0.8rem;
@@ -1038,7 +1148,7 @@ canvas {
 }
 
 .not-yet {
-    text-decoration: line-through;
+    text-decoration: line-through !important;
 }
 
 .work:nth-last-of-type(1) {
@@ -1057,7 +1167,7 @@ canvas {
 }
 
 .interests {
-    background-color: #dfdbc5;
+    background-color: #fffff5;
     display: block;
     min-height: 300px;
     box-shadow: 10px 10px 0 0px #9f66d1;
@@ -1067,6 +1177,7 @@ canvas {
     color: #20243a;
     font-size: 1.2rem;
     line-height: 1.4rem;
+    margin-top: 40px;
 }
 
 .interests .content {
@@ -1143,7 +1254,7 @@ canvas {
 
 .interest-content {
     display: block;
-    margin: 0px 25px;
+    margin: 0px 5px;
     padding: 0;
     user-select: none;
     font-size: 1rem;
@@ -1173,14 +1284,14 @@ canvas {
 }
 
 .experiments {
-    background-color: #ffcd49;
+    background-color: #20243a;
     display: block;
     min-height: 300px;
-    box-shadow: 10px 10px 0 0px #20243a;
+    box-shadow: 10px 10px 0 0px #6fa0b8;
     margin: 10px 50px 100px 50px;
     font-family: OpenSauceOne, sans-serif;
     font-weight: 500;
-    color: #20243a;
+    color: #fffff5;
     font-size: 1.5rem;
     line-height: 1.8rem;
 }
@@ -1193,13 +1304,88 @@ canvas {
 
 .experiment {
     font-size: 1.4rem;
-    padding: 10px;
+    padding: 20px 30px;
+    margin: 0px 20px;
     line-height: 1.6rem;
-    border-top: 1px solid #20243a;
+    border-top: 1px solid #fffff5;
     font-weight: 700;
 }
 
 .experiment-content {
+    font-size: 1rem;
+    margin: 15px 0;
+    line-height: 1.2rem;
+    font-weight: 400;
+    color: #fffff5;
+}
+
+.experiment-title-content {
+    text-decoration: underline;
+    font-size: 1.4rem;
+
+    line-height: 1.6rem;
+    font-weight: 700;
+    color: #fffff5;
+}
+
+.experiment:nth-last-of-type(1) {
+    border-bottom: 1px solid #fffff5;
+}
+
+
+
+
+
+.contacts {
+    background-color: #20243a;
+    display: block;
+
+    box-shadow: 10px 10px 0 0px #f7bf25;
+    margin: 10px 50px 100px 50px;
+    font-family: OpenSauceOne, sans-serif;
+    font-weight: 500;
+    color: #20243a;
+    font-size: 1.5rem;
+
+    line-height: 1.8rem;
+}
+
+.contacts .content {
+    padding: 40px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px auto;
+    width: fit-content;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.contact a{
+    color: inherit;
+}
+
+.contact-title-content{
+    font-size: 1.4rem;
+    font-weight: 700;
+    
+    line-height: 1.6rem;
+
+}
+
+.contact{
+    margin: 10px;
+    padding: 8px 5px;
+    border: 2px solid currentColor;
+    border-radius: 40px;
+    transition: 0.2s ease all;
+}
+
+
+
+
+
+.contact-content {
     font-size: 1rem;
     margin: 15px 15px 0px 15px;
     line-height: 1.2rem;
@@ -1207,18 +1393,21 @@ canvas {
     color: #20243a;
 }
 
-.experiment-title-content {
-    text-decoration: underline;
+.contact-title-content {
+    text-decoration: unset;
     font-size: 1.4rem;
     padding: 10px;
     line-height: 1.6rem;
     font-weight: 700;
-    color: #20243a;
+
 }
 
-.experiment:nth-last-of-type(1) {
-    border-bottom: 1px solid #20243a;
+.contact-subtitle{
+    color: #fffff5;
+    font-size: 1rem;
+    padding: 10px 20px
 }
+
 
 .nowrap {
     white-space: nowrap;
@@ -1303,6 +1492,40 @@ canvas {
     height: 30vh;
     flex-grow: 2;
     margin: 2vmin;
+    position: relative;
+    user-select: none;
+}
+
+.gallery li .image-overlay{
+    opacity: 0;
+    transition: all ease 0.3s;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fffff5;
+    background-color: rgba(225, 82, 50, 0.7);
+    border-radius: 10px;
+    user-select: none;
+
+    
+    
+
+}
+
+.gallery li .image-overlay h1{
+    font-size: 1.7rem;
+    line-height: 1.9rem;
+    padding: 30px;
+    text-align: center;
+    user-select: none;
+    
+}
+
+.gallery li .image-overlay:active{
+    opacity: 1;
 }
 
 .gallery img {
@@ -1311,6 +1534,7 @@ canvas {
     object-fit: cover;
     vertical-align: bottom;
     border-radius: 10px;
+    user-select: none;
 }
 
 @media (max-aspect-ratio: 1/1) {
@@ -1348,11 +1572,29 @@ canvas {
     background-color: #20243a;
     color: #fffff5;
     font-family: OpenSauceOne, sans-serif;
+
+
+}
+
+.footer p{
     font-size: 0.8rem;
-    line-height: 1rem;
+    margin: 10px;
+}
+
+@media screen and (max-width: 1000px){
+
+    .contact-title{
+        margin: 20px auto;
+    }
 }
 
 @media screen and (max-width: 800px) {
+    .contacts .content {
+        padding: 20px 0px;}
+
+    .nav li{
+        list-style: none;
+    }
     .follower,
     .cursor {
         display: none;
@@ -1396,6 +1638,11 @@ canvas {
         padding-left: 10px;
         padding-right: 10px;
     }
+    .contacts .content {
+        padding: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     .two {
         padding: 30px 10px;
     }
@@ -1406,12 +1653,32 @@ canvas {
 }
 
 @media screen and (max-width: 600px) {
+
+    .gallery li .image-overlay h1{
+        font-size: 1rem;
+        line-height: 1.2rem;
+        padding: 10px;
+
+    }
+    .padder {
+        padding: 10px;
+        height: 70px;
+    }
+
      :root {
         --hgrid-padding: 20px;
         --vgrid-padding: 20px;
         --menu-square-length: 60px;
         --scroll-square-length: 190px;
     }
+    .experiment {
+        font-size: 1.3rem;
+        padding: 20px 20px;
+        margin: 0px 10px;
+        line-height: 1.4rem;
+
+    }
+
     .nav {
         margin-top: 50px;
         font-size: 3rem;
@@ -1436,6 +1703,13 @@ canvas {
         font-size: 2rem;
         line-height: 2.5rem;
         letter-spacing: 1px;
+        
+    }
+
+    .contact-title {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        letter-spacing: 1px;
     }
     .work-subtitle {
         margin-top: 30px;
@@ -1451,10 +1725,7 @@ canvas {
         margin: 10px 0px 15px 0px;
         border: 1px solid #20243a
     }
-    .contact-content {
-        font-size: 0.8rem;
-        line-height: 1rem;
-    }
+
     .work-content {
         font-size: 1rem;
         line-height: 1.5rem;
@@ -1497,6 +1768,11 @@ canvas {
         border-bottom: 3px solid currentColor;
         transform: translate(10px, 0px);
     }
+
+    /* .contact-underline::after {
+        border-bottom: 3px solid currentColor;
+        transform: translate(10px, 0px);
+    } */
     .ig-fix {
         height: var(--app-height) !important;
     }
@@ -1562,6 +1838,7 @@ canvas {
         margin-top: 30px;
         margin-bottom: 30px;
     }
+    .contacts,
     .experiments,
     .interests {
         width: 100%;
@@ -1577,6 +1854,31 @@ canvas {
         margin-right: 10px;
     }
 }
+@media screen and (max-width: 455px) {
+    .contacts .content {
+        display: block;
+        position: relative;
+        padding: 25px 5px;
+        width: 90%;
+    
+    }
+    
+    .contact-title-content{
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+
+    .contact{
+        margin: 25px 10px;
+        position: relative;
+        text-align: center;
+        
+    }
+
+}
+
+
 
 @media screen and (max-width: 400px) {
     .nav {

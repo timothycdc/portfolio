@@ -44,9 +44,9 @@
                 <li><a href = '#about'>About</a></li>
 				<li><a href = '#interests'>Interests</a></li>
 				<li><a href = '#works'>Works</a></li>
-				<li><a href = '#gallery'>Gallery</a></li>
-				<li><a href = '#experiments'>Experiments</a></li>
 				<li><a href = '#contact'>Contact</a></li>
+				<li><a href = '#experiments'>Experiments</a></li>
+				<li><a href = '#gallery'>Gallery</a></li>
 				
 
 
@@ -57,6 +57,17 @@
         <div class='home-menu-square'>
             <p id='button-letter'>i</p>
         </div>
+
+
+
+
+        <section class='marquee-title-wrapper home-title '>
+            <div class='marquee-title-first' data-reverse="bool" data-speed="0.2">
+                <span class = 'firstmarq' id = 'typerline'> </span>
+            </div>
+        </section>
+
+
 
         <div id="canvas">
             <div class="plane">
@@ -103,10 +114,10 @@
                 <p><span class='ccode'>UKT:</span><span id='lon'>05:34:59</span>&nbsp;🇬🇧</p>
             </div>
 
-            <div id="typer">
+            <!-- <div id="typer">
                 <p id='typertext'><span id='typerline'></span></p>
 
-            </div>
+            </div> -->
 
 
         </div>
@@ -129,6 +140,7 @@
             </div>
         </section>
 
+        
 
 
 
@@ -147,26 +159,26 @@
                 </div>
                 <hr class='hr-dash'>
                 <div class='rotator-index'>
-                    <p class='underline-right'  id = 'about'>ABOUT ME</p>
+                    <p class='underline-right'  >INTRO</p>
                 </div>
             </div>
 
 
-            <div class='wrap'>
+            <div class='wrap' id = 'about'>
                 <div class='about-me'>
                     <div class="pink-box box-marquee marquee3k " data-speed="0.1">
-                        <span>#&nbsp;</span>
+                        <span>ABOUT ME –&nbsp;</span>
                     </div>
-                    <div class='content'>
-                        <p>Hello! I'm Timothy, a Malaysian student at Imperial College London – studying Electronic and Information Engineering, with a keen interest in machine learning, full-stack development, mathematics, data science and cryptocurrencies. Beside all these STEM
-                            disciplines, I'm also into media arts, music and design. This site made by me serves as a bio, collection and showcase of my works and creativity – happy browsing!</p><br>
+                    <div class='content change-colour-box'>
+                        <p>Hello! I'm Timothy, a Malaysian student at Imperial College London – studying Electronic and Information Engineering, with a keen interest in machine learning, full-stack development, mathematics, data science and cryptocurrencies. Beside these STEM
+                            disciplines, I'm also into media arts (photography/video), music and design. This site serves as a collection of my works and creativity – happy browsing!</p><br>
 
                     </div>
                 </div>
 
             </div>
 
-            <div class='section-rotator-reverse'>
+            <!-- <div class='section-rotator-reverse'>
                 <div class="rotating-badge-section">
                     <svg class="rotate-textcircle" viewBox="0 0 500 500">
 							<title>Loader</title>
@@ -179,34 +191,34 @@
                     <p class='underline-left'  id = 'interests'>INTERESTS</p>
                 </div>
 
-            </div>
+            </div> -->
 
 
 
-            <div class='wrap'>
+            <div class='wrap' id = 'interests'>
 
-                <div class='interests'>
+                <div class='interests' >
                     <div class="box-marquee  blue-box marquee3k interestbox" data-speed="0.1">
-                        <span>#&nbsp;</span>
+                        <span>INTERESTS –&nbsp;</span>
                     </div>
-                    <div class='content'>
+                    <div class='content change-colour-box'>
 
                         <div class='interest-entry'>
                             <div class='interest-bar interest-inactive'>
-                                <p>Computer Science</p>
+                                <p>Engineering & Computing</p>
                             </div>
                             <div class='interest-content interest-hide'>
-                                <p></p>
+                                <p>My current degree allows me to pursue my interests in both engineering and computer science. I enjoy playing around with Lego Mindstorms and Arduinos and intend to build makerspace/hacking skills at university. I'm well-versed with Python, HTML, Javascript, CSS and have experience with C, R, LaTeX, and Git. </p>
                             </div>
                             <div class='interest-link'></div>
                         </div>
 
                         <div class='interest-entry'>
                             <div class='interest-bar interest-inactive'>
-                                <p>AI and Neural Networks</p>
+                                <p>Artificial Intelligence</p>
                             </div>
                             <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
+                                <p>I'm currently in the midst of machine learning courses, and intend to take deep learning modules at university. For my EPQ project, I researched about AI ethics, which spurred a curiosity for learning how different kinds of artificial intelligence work.  </p>
                             </div>
                             <div class='interest-link'></div>
                         </div>
@@ -216,7 +228,7 @@
                                 <p>Maths and Physics</p>
                             </div>
                             <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
+                                <p>I really, really, really like maths (to the point of almost studying a degree in it). There will be the very conceptual side of things that I like to read up about (e.g. Russell's paradox, Bifurication, Collatz Conjecture), and then it gets a bit more practical/compsci related like Information Theory, Hamming codes, soft-error correction in combinational logic, etc. After all, I am an engineer, and I like learning the physics behind how things work – there are some articles in my old blog where I cover some of the physics behind music. </p>
                             </div>
                             <div class='interest-link'></div>
                         </div>
@@ -226,67 +238,46 @@
                                 <p>Data Science and Statistics</p>
                             </div>
                             <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
+                                <p>In my EPQ research of AI Ethics, I learnt the importance of data manipulation and collection in training AI models. Taking Further Statistics at A Levels also helped with my understanding of the subject. I like keep my options open by studying topics in data science/quant/actuarial science for those pretty cool high-paying jobs (I hope). Throughout my college life I keep in touch with friends studying actuarial science have discussions with them about their work and course materials.</p>
                             </div>
                             <div class='interest-link'></div>
                         </div>
 
                         <div class='interest-entry'>
                             <div class='interest-bar interest-inactive'>
-                                <p>Music &amp; Harmony (Jacob Collier stuff)</p>
+                                <p>Music &amp; Harmony</p>
                             </div>
                             <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
+                                <p>
+                                    I'm a huge fan of jazz/fusion/contemporary music, also covering other genres such as Bossa Nova, R&B, Funk, etc. Also a big music theory nerd for Jacob Collier-esque music, his super-ultra-hyper-mega-meta-lydian style and reharm work. In the past, I've served as a chapel musican, and play the drums, piano, bass, and guitar. Recently, I've been rediscovering (my traditional Asian roots of) classical piano and zero improvisation for the technical benefit. Stay tuned to this space. If you want a better sense of my music taste, check out my Spotify below in the links.
+                                </p>
                             </div>
                             <div class='interest-link'></div>
                         </div>
 
+                       
+
                         <div class='interest-entry'>
                             <div class='interest-bar interest-inactive'>
-                                <p>Jazz/Fusion/Funk/R&amp;B</p>
+                                <p>Other Science Stuff</p>
                             </div>
                             <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
+                                <p>Natural Sciences, Human Sciences (more details to come)</p>
                             </div>
                             <div class='interest-link'></div>
                         </div>
 
-                        <div class='interest-entry'>
-                            <div class='interest-bar interest-inactive'>
-                                <p>Classical Piano</p>
-                            </div>
-                            <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
-                            </div>
-                            <div class='interest-link'></div>
-                        </div>
+                        
 
                         <div class='interest-entry'>
                             <div class='interest-bar interest-inactive'>
-                                <p>Biological Sciences</p>
+                                <p>Design and Arts</p>
                             </div>
                             <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
-                            </div>
-                            <div class='interest-link'></div>
-                        </div>
+                                <p>
+                                    I find UX/UI design very fascinating, along with the thereapeutic joy of creating pretty graphics and finding lovely font pairings. I also enjoy photography and videography and have worked in my school's production team in the past.
 
-                        <div class='interest-entry'>
-                            <div class='interest-bar interest-inactive'>
-                                <p>Neuroscience and Psychology</p>
-                            </div>
-                            <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
-                            </div>
-                            <div class='interest-link'></div>
-                        </div>
-
-                        <div class='interest-entry'>
-                            <div class='interest-bar interest-inactive'>
-                                <p>Calligraphy and Typograhy</p>
-                            </div>
-                            <div class='interest-content interest-hide'>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, odio accusantium! Quae quaerat, obcaecati ipsa sit rem, laborum consectetur saepe ea officia velit ut voluptates debitis laboriosam suscipit quibusdam atque?</p>
+                                </p>
                             </div>
                             <div class='interest-link'></div>
                         </div>
@@ -318,10 +309,13 @@
         <section class='marquee-title-wrapper content-title' >
             <div class='marquee3k marquee-title-dark' data-reverse="bool" data-speed="0.5">
                 <span>
-				CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;CONTENT&nbsp;*&nbsp;
+				CONTENT&nbsp;*&nbsp;
 			</span>
             </div>
         </section>
+
+
+
 
         <section class='content-wrapper two'>
             <div class='content' id = 'works'>
@@ -339,7 +333,7 @@
                         <a href='https://tchungblog2.netlify.app' class='work-title pink title-underline'>
 							BLOG
 						</a>
-                        <p>My current blog for documenting stuff about things I find interesting. Coded with Hugo and deployed with Netlify, using a modified design from Jimmy Cai's Stack Theme.
+                        <p>My current blog for documenting stuff about things I find interesting. Made with Hugo and deployed with Netlify, using a modified design from Jimmy Cai's <a class = 'link pink' href = 'https://github.com/CaiJimmy/hugo-theme-stack'>Stack Theme</a>.
                         </p>
                     </div>
                 </div>
@@ -355,7 +349,7 @@
                         <a href='https://toss-my.netlify.app' class='work-title yellow title-underline'>
 							TOSS
 						</a>
-                        <p>A static site blog with CMS configured for The Other Side of The Story (TOSS), a non-profit NGO raising awareness about matters relating to mental health in the youth. Powered by Hugo and Netlify.
+                        <p>A static site blog with CMS configured for The Other Side of The Story (TOSS), a non-profit NGO raising awareness about matters relating to mental health in the youth. Powered by Hugo and Netlify. 
                         </p>
                     </div>
                 </div>
@@ -370,7 +364,7 @@
                         <a href='https://tchungblog.netlify.app' class='work-title blue title-underline'>
 							OLD BLOG
 						</a>
-                        <p>During my A-Levels I did write about topics I researched /found interesting – this was to become properly informed on my Personal Statement as interview practice.
+                        <p>During my A-Levels, I wrote about topics in my Personal Statement to become properly informed on research interests for the admissions interviews.
 
                         </p>
                     </div>
@@ -387,8 +381,7 @@
 							GALLERY
 						</a>
                         <p>
-                            Since young, I've always been the avid photographer and videographer. My work has been featured in school productions and the school magazine. I shoot with a Panasonic GH5 and an iPhone XS, and every other size in between! In 2017, I began exploring videography
-                            as well!
+                            A collection of some pictures shot on my travels, edited by me. Cameras used: Panasonic Lumix GH5, iPhone XS
                         </p>
                     </div>
                 </div>
@@ -404,7 +397,7 @@
 							EXPERIMENTS
 						</a>
                         <p>
-                            The more unpolished bits of my work that I'm too lazy to put on my blog will be linked here.
+                            Pretty much proof-of-concept stuff and snippets of code from online bodged together into working creations, linked below.
                         </p>
                     </div>
                 </div>
@@ -432,19 +425,126 @@
             </div>
         </section>
 
+        <!-- <section class='marquee-title-wrapper contact-title-marquee' id='contact'>
+            <div class='marquee3k marquee-title' data-reverse="bool" data-speed="0.5">
+                <span>
+				CONTACT ME&nbsp;*&nbsp;
+			</span>
+            </div>
+        </section> -->
 
 
 
-        <section class='marquee-title-wrapper experiment-title' id='experiments'>
+		<section class='content-wrapper four' id = 'contact'>
+            <div class='section-rotator'  >
+                <div class="rotating-badge-section">
+                    <svg class="rotate-textcircle" viewBox="0 0 500 500">
+							<title>Loader</title>
+							<defs><path id="rotate-textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z"/></defs>
+							<text class = 'rotate-scroll-text2'><textPath xlink:href="#rotate-textcircle" aria-label="Timo's 2021 Blog and Portfolio" textLength="900">Timothy's 2021 Blog &amp; Portfolio –</textPath></text>
+						</svg>
+                </div>
+                <hr class='hr-dash-dark'>
+                <div class='rotator-index-dark'>
+                    <p class='underline-right'>boujee linktree</p>
+                </div>
+            </div>
+
+
+                <div class='wrap'>
+                    <div class='contacts'>
+                        <div class="box-marquee marquee3k red-box" data-speed="0.1" >
+                            <span>CONTACT&nbsp;&nbsp;&darr;&nbsp;&nbsp;</span>
+                        </div>
+                        <div class='content'>
+                            <div class='contact spotify-green'>
+                                <a class = 'contact-title-content ' href = 'https://open.spotify.com/user/timothycdc?si=48ed7b065bd445b5medi'>Spotify &#8594; </a>
+                            </div>
+
+                            <div class='contact gmail-red'>
+                                <a class = 'contact-title-content ' href = 'mailto:timothychungd@gmail.com '><span style = 'color: #2079ff'>E</span>m<span style = 'color: #f0b208'>a</span><span style = 'color: #23ad58'>il</span> &#8594; </a>
+                            </div>
+
+                            <div class='contact ig-purple'>
+                                <a class = 'contact-title-content' href = 'https://www.instagram.com/timochung'>Instagram &#8594; </a>
+                            </div>
+                        
+                            <div class='contact linkedin-blue'>
+                                <a class = 'contact-title-content' href = 'https://www.linkedin.com/in/timothycdc/'>LinkedIn &#8594; </a>
+                            </div>
+<!-- 
+                            <div class='contact white'>
+                                <a class = 'contact-title-content' >  coming soon!  </a>
+                            </div> -->
+                            <div class='contact resume-yellow'>
+                                <a class = 'contact-title-content  not-yet' >  Resume &#8594; </a>
+                            </div>
+
+                            <div class='contact github-black'>
+                                <a class = 'contact-title-content  not-yet' > Github &#8594; </a>
+                            </div>
+
+                        </div>
+                        <p class = 'contact-subtitle'>More coming soon!</p>
+                    </div>
+
+                    <!-- <div class='title-section contact-title-color'>
+                    <p>// CONTACT //</p> <span class = 'coming-soon'>(more coming soon!)</span>
+                </div> -->
+                <!-- <div class = 'contact-wrapper'>
+                <div class='contact'>
+                    <div class='contact-content'> 
+                        <a href='https://www.linkedin.com/in/timothycdc/' class='contact-title blue contact-underline'>
+							LINKEDIN
+						</a>  
+                    </div>
+                </div>
+
+
+                <div class='contact'>
+                    <div class='contact-content'> 
+                        <a href="mailto:timothychungd@gmail.com " class='contact-title red contact-underline'>
+							EMAIL
+						</a>  
+                    </div>
+                </div>
+            
+				<div class='contact'>
+                    <div class='contact-content'> 
+                        <a class='contact-title dark contact-underline not-yet'>
+							GITHUB
+						</a> 
+
+
+                    </div>
+                </div>
+
+                <div class='contact'>
+                    <div class='contact-content'> 
+                        <a  class='contact-title green contact-underline not-yet'>
+							RESUME 
+						</a>
+
+
+                    </div>
+                </div>
+                </div> -->
+
+              
+			</div>
+		</section>
+
+
+        <!-- <section class='marquee-title-wrapper experiment-title' id='experiments'>
             <div class='marquee3k marquee-title' data-reverse="bool" data-speed="0.5">
                 <span>
 				EXPERIMENTS&nbsp;*&nbsp;
 			</span>
             </div>
-        </section>
+        </section> -->
 
-        <section class="content-wrapper four">
-            <div class='section-rotator'>
+        <section class="content-wrapper four" id = 'experiments'>
+            <div class='section-rotator' >
                 <div class="rotating-badge-section">
                     <svg class="rotate-textcircle" viewBox="0 0 500 500">
 							<title>Loader</title>
@@ -460,32 +560,32 @@
 
             <div class='wrap'>
                 <div class='experiments'>
-                    <div class="box-marquee marquee3k red-box" data-speed="0.1">
-                        <span>*&nbsp;</span>
+                    <div class="box-marquee marquee3k red-box" data-speed="0.2">
+                        <span> random stuff&nbsp;–&nbsp; </span>
                     </div>
                     <div class='content'>
                         <div class='experiment'>
                             <a class = 'experiment-title-content' href = '../blob.html'>ThreeJS Blobs and <span class='nowrap'> Shaders &#8594; </span></a>
                             <div class='experiment-content'>
-                                <p>Following Mario Carillo's Codrops tutorial, I taught myself a way to use shaders to make some colourful blobs – their colours are assigned based on their displacement vectors.</p>
+                                <p>My first foray into GLSL, based off Mario Carillo's Codrops tutorial. I played around with shaders to make some colourful blobs, and used Perlin noise to generate distortion and model the colour points based off their vertex displacement</p>
                             </div>
                         </div>
                         <div class='experiment'>
                             <a href = '../blocks.html' class = 'experiment-title-content'>Interaction Repulsion Effect With <span class='nowrap'>ThreeJS &#8594;</span></a>
                             <div class='experiment-content'>
-                                <p>Example project built on on D. Filho's code – 3D shapes which jump towards the cursor. Added a font-loader and updated to the new GSAP 3.0 syntax.</p>
+                                <p>Example project built on on Ion D. Filho's tutorial code on 3D shapes which are attracted to cursor/touch, to learn how ThreeJS loads and how to incorporate GSAP animations to objects. Added a font-loader and updated to the new GSAP 3.0 syntax.</p>
                             </div>
                         </div>
                         <div class='experiment'>
                             <a class = 'experiment-title-content' href = 'https://timochung-old.netlify.app/'>Old Portfolio <span class='nowrap'>Art &#8594;</span></a>
                             <div class='experiment-content'>
-                                <p>Inspired by Ilithya's art on CodePen, I made a scene with similar elements for the past version of my site. It's saved here.</p>
+                                <p>Inspired by Ilithya's art on CodePen, I made a scene with similar elements for the old version of my site. It's saved here.</p>
                             </div>
                         </div>
                         <div class='experiment'>
                             <a class = 'experiment-title-content' href = '../liquid.html'> Liquid Marbling Effect with Shaders and <span class='nowrap'>Curtains.JS &#8594;</a>
 							<div class = 'experiment-content'>
-								<p>Some earlier prototype of the first section in my portfolio. The liquid effect is created by altering vertices of a plane the z-axis using mouse coordinates.</p>
+								<p>An earlier prototype of the home section in my portfolio. The liquid effect is created by altering vertices of a plane the z-axis taking input from mouse coordinates/touch coordinates.</p>
 							</div>
 						</div>
 						<div class = 'experiment'>
@@ -497,7 +597,7 @@
 						<div class = 'experiment'>
 							<a class = 'experiment-title-content' href = 'https://tchungblog.netlify.app/blog/siri-shortcuts-with-javascript/'>Siri Shortcut   <span class = 'nowrap'>Bookmarklet &#8594;</a>
 							<div class = 'experiment-content'>
-								<p>On my Chrome desktop browser, I use the Video Speed Controller (VSC) extension to speed up videos on my YouTube binges. The App Store doesn't offer a similar extension for my iPad Pro when I'm using Safari to access YouTube. Since Siri Shortcuts allows JavaScript code to be run in a browser, why not create an injectable widget to emulate VSC?</p>
+								<p>On my Chrome desktop browser, I use the Video Speed Controller (VSC) extension to speed up videos on my YouTube binges. The App Store doesn't offer a similar extension for my iPad Pro when I'm using Safari to access YouTube. Since Siri Shortcuts allows JavaScript code to be run in a browser, I made this little productivity tool.</p>
 							</div>
 						</div>
 				</div>
@@ -510,195 +610,170 @@
         </section>
 
 
-		<section class='marquee-title-wrapper contact-title' id='contact'>
+
+		<section class='marquee-title-wrapper gallery-title' id='gallery'>
             <div class='marquee3k marquee-title' data-reverse="bool" data-speed="0.5">
                 <span>
-				CONTACT ME&nbsp;*&nbsp;
-			</span>
-            </div>
-        </section>
-
-
-
-		<section class='content-wrapper two'>
-            <div class='content'>
-                <div class='title-section contact-title-color'>
-                    <p>CONTACT</p>
-                </div>
-                <div class = 'contact-wrapper'>
-                <div class='contact'>
-                    <div class='contact-content'> 
-                        <a href='https://www.linkedin.com/in/timothycdc/' class='work-title blue title-underline'>
-							LINKEDIN
-						</a>  
-                    </div>
-                </div>
-
-
-                <div class='contact'>
-                    <div class='contact-content'> 
-                        <a href="mailto:timothychungd@gmail.com " class='work-title red title-underline'>
-							EMAIL
-						</a>  
-                    </div>
-                </div>
-             <span class = 'coming-soon'>(coming soon!)</span>
-				<div class='contact'>
-                    <div class='contact-content'> 
-                        <a class='work-title dark title-underline not-yet'>
-							GITHUB
-						</a> 
-
-
-                    </div>
-                </div>
-
-                <div class='contact'>
-                    <div class='contact-content'> 
-                        <a  class='work-title green title-underline not-yet'>
-							RESUME 
-						</a>
-
-
-                    </div>
-                </div>
-                </div>
-
-              
-			</div>
-		</section>
-		        <section class='marquee-title-wrapper gallery-title' id='gallery'>
-            <div class='marquee3k marquee-title' data-reverse="bool" data-speed="0.5">
-                <span>
-				GALLERY&nbsp;*&nbsp;GALLERY&nbsp;*&nbsp;GALLERY&nbsp;*&nbsp;GALLERY&nbsp;*&nbsp;GALLERY&nbsp;*&nbsp;GALLERY&nbsp;*&nbsp;GALLERY&nbsp;*&nbsp;GALLERY&nbsp;*&nbsp;GALLERY&nbsp;*&nbsp;
+				GALLERY&nbsp;*&nbsp;
 			</span>
             </div>
         </section>
         <section class='gallery-section'>
             <div class='title-section gallery-title-color'>
                 <p>GALLERY</p>
+                <p class = 'gallery-subtitle'>click/tap and hold for more info</p>
             </div>
             <ul class='gallery'>
                 <h1>
 
                 </h1>
                 <li>
-                    <img class='gallery-img' src="../images/vatican-copy-resized.jpg" alt="museum hallway with people" loading="lazy">
+                    <div class = 'image-overlay'><h1>Tapestries in the hallway of the Vatican Museum</h1></div>
+                    <img class='gallery-img' des="testing" src="../images/vatican-copy-resized.jpg" alt="museum hallway with people" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Toledo, Spain</h1></div>
                     <img class='gallery-img' src="../images/toledo copy-resized.JPG" alt="skyline and european buildings" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Funicular track in Montserrat, Catalonia</h1></div>
                     <img class='gallery-img' src="../images/funicular copy-resized.JPG" alt="funicular track leading up to a station on the mountain" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Put my life on the line for this shot, @ Barcelona</h1></div>
                     <img class='gallery-img' src="../images/barcelona copy-resized.jpg" alt="facing across the city street with palm trees in the evening" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Madrid</h1></div>
                     <img class='gallery-img' src="../images/madrid copy-resized.JPG" alt="taxi on the city streets, european architecture" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1> Spiral staircase @ Museum Negara, Malaysia</h1></div>
                     <img class='gallery-img' src="../images/museumnegara copy-resized.JPG" alt="large spiral staircase with people walking up" loading="lazy">
                 </li>
 
                 <li>
+                    <div class ='image-overlay'> <h1>Sunset in Venice, colours straight from the camera</h1></div>
                     <img class='gallery-img' src="../images/venice2 copy-resized.JPG" alt="sunset across the canal in Venice" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1> Acqua Alta in Venice<h1></div>
                     <img class='gallery-img' src="../images/venice copy-resized.jpg" alt="venice floodwaters outside a shop door" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Les Menuires, French Alps</h1></div>
                     <img class='gallery-img' src="../images/alps.JPG" alt="mountain, homes covered in snow, skiers" loading="lazy">
                 </li>
 
                 <li>
-                    <img class='gallery-img' src="../images/vatican2 copy-resized.JPG" alt="view from the top of vatican overlooking the obelisk and crowds below " loading="lazy">
+                    <div class = 'image-overlay'><h1>St. Peter's Basilica, Vatican </h1></div>
+                    <img class='gallery-img' src="../images/vatican2 copy-resized.JPG" alt="view from the top of St Peter's Basilica overlooking the obelisk and crowds below " loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Val Thorens, French Alps</h1></div>
                     <img class='gallery-img' src="../images/alpsskilift copy-resized.JPG" alt="view from bottom of mountain looking up towards a ski life taking skiers to the summit" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Arganzuel Bridge, Madrid</h1></div>
                     <img class='gallery-img' src="../images/spainbridge copy-resized.JPG" alt="walking geometric bridge in madrid" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Mar Del Plata, Argentina</h1></div>
                     <img class='gallery-img' src="../images/mardelplataeat copy-resized.JPG" alt="city lights of cars outside winodw" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Sea of Galilee</h1></div>
                     <img class='gallery-img' src="../images/galilee copy-resized.JPG" alt="boat with birds atop" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Red Fish Restaurant, Barcelona</h1></div>
                     <img class='gallery-img' src="../images/geneva2 copy-resized.JPG" alt="boat-shaped cafe with solar panels and vegetation growing on the roof" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Trees in Waiotapu, New Zealand</h1></div>
                     <img class='gallery-img' src="../images/waiotapu trees copy-resized.JPG" alt="autumn trees" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Neon signs in Barcelona</h1></div>
                     <img class='gallery-img' src="../images/barcelonalamps copy-resized.JPG" alt="neon letter lights" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>On the road in Christchurch, NZ</h1></div>
                     <img class='gallery-img' src="../images/nzchristchurch copy-resized.JPG" alt="van on the road with mountains in the background" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Hot springs in Waiotapu</h1></div>
                     <img class='gallery-img' src="../images/waiotapu copy-resized.jpg" alt="man on a bridge overlooking a river" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Catalonia protest banners</h1></div>
                     <img class='gallery-img' src="../images/barcelona politic copy-resized.JPG" alt="sign on the window with mouth restraint over a face, text reads Democracia" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Pull & Bear, Madrid</h1></div>
                     <img class='gallery-img' src="../images/barcelonapnb copy-resized.jpg" alt="neon sign saying 'stairway to heaven' " loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Musée de Confluences, Lyon</h1></div>
                     <img class='gallery-img' src="../images/lyonmus2 copy-resized.JPG" alt="museum" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Arc de Triomf, Barcelona</h1></div>
                     <img class='gallery-img' src="../images/arcdetriomf copy-resized.jpg" alt="arc de triomf– tower bridge in spain" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Cat in Geraldine, New Zealand</h1></div>
                     <img class='gallery-img' src="../images/geraldinecat copy-resized.JPG" alt="cat with flowers" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Musée de Confluences, Lyon</h1></div>
                     <img class='gallery-img' src="../images/lyonmus copy-resized.jpg" alt="stairs and escalator" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Wadi Rum, Jordan</h1></div>
                     <img class='gallery-img' src="../images/jordan copy-resized.JPG" alt="tents in the desert" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Bees @ Rotorua, New Zealand</h1></div>
                     <img class='gallery-img' src="../images/newzealand copy-resized.jpg" alt="bee on flower" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Galerias Pacifico, Argentina</h1></div>
                     <img class='gallery-img' src="../images/galerias pacifico copy-resized.JPG" alt="mall in argentina, geometric dome open top window with mirrors and tree decor" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Airplane window clouds</h1></div>
                     <img class='gallery-img' src="../images/clouds copy-resized.jpg" alt="clouds out of an airplane window" loading="lazy">
                 </li>
 
                 <li>
+                    <div class = 'image-overlay'><h1>Sunset in Venice pt 2</h1></div>
                     <img class='gallery-img' src="../images/venicecanal copy-resized.JPG" alt="bridge over a canal during sunset" loading="lazy">
                 </li>
 
@@ -711,7 +786,7 @@
 
         </section>
 		<section class = 'footer'>
-			<p>This site is a work in progress and its appearance will slightly alter as it gets tinkered with. <br><br></p><p>Made with ❤️ by Timo using GSAP, Netlify, Curtains.JS, Marquee3K, Webpack and Netlify.</p>
+			<p>This site is a work in progress and its appearance will alter from time to time. </p><p>Made with ❤️ by Timo using GSAP, Netlify, Curtains.JS, Marquee3K, TypeIt.JS and Webpack.</p>
 		</section>
 
 
