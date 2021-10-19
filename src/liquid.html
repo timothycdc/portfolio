@@ -63,7 +63,7 @@
 			#ifdef GL_ES
 			precision highp float;
 			#endif
-
+			precision highp float;
 			// those are the mandatory attributes that the lib sets
 			attribute vec3 aVertexPosition;
 			attribute vec2 aTextureCoord;
@@ -120,9 +120,10 @@
         </script>
         <script id="plane-fs" type="x-shader/x-fragment" defer>
 			#ifdef GL_ES
-			precision lowp float;
+			precision highp float;
 			#endif
-
+			precision highp float;
+			
 			// get our varyings
 			varying vec3 vVertexPosition;
 			varying vec2 vTextureCoord;
