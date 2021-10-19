@@ -165,41 +165,6 @@ if (isSafari) {
 
 
 
-var spanName = document.getElementById('surname');
-spanName.addEventListener('mouseover', function() {
-    spanName.classList.toggle('reveal-surname')
-    spanName.innerHTML = '钟 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-    spanName.style.paddingBottom = '40px';
-})
-spanName.addEventListener('mouseout', function() {
-    spanName.classList.toggle('reveal-surname')
-    spanName.innerHTML = 'Chung'
-    spanName.style.paddingBottom = 'unset';
-
-})
 
 
 
-
-new TypeIt("#herotext", {
-        speed: 100,
-        loop: true,
-    })
-    .type("Frontend developer~ ", { delay: 300 })
-    .pause(3600)
-    .move(-12, { speed: 100, delay: 100 })
-    .delete(8)
-    .type('(Aspiring Full-Stack)', { delay: 300 })
-    .move(12, { speed: 100, delay: 100 })
-    .pause(3600)
-    .delete()
-    .type("Multi-instrumentalist~ ", { delay: 300 })
-    .pause(3600)
-    .delete()
-    .type("Engineer~ ", { delay: 300 })
-    .pause(3600)
-    .delete()
-    .type("Designer~ ", { delay: 300 })
-    .pause(3600)
-    .delete()
-    .go();
