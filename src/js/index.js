@@ -221,7 +221,7 @@ window.onload = function() {
 
     let scrollButton = document.getElementById('down-arrow-container');
     scrollButton.addEventListener('mousedown', function() {
-        gsap.to(window, { duration: 0.3, scrollTo: ".content-title", ease: 'power3' });
+        gsap.to(window, { duration: 1.1, scrollTo: ".content-title", ease: 'power3' });
     });
 
     let gallink = document.getElementById('gallery-link');
@@ -479,15 +479,21 @@ function init() {
 
 function normalType(){
 var menuTitle = new TypeIt("#typerline", {
-    speed: 100,
+    speed: 50,
     loop: true
 
 })
 .type("Hi, welcome to one of my creations.", { delay: 0 })
-.pause(20000)
+.pause(2000)
 .delete()
-.type("a work in progress?", { delay: 0 })
-.pause(20000)
+.type("I've updated this site as of 13.2.2022!", { delay: 0 })
+.pause(5000)
+.delete()
+.type("Content updates and minor UI tweaks.", { delay: 0 })
+.pause(5000)
+.delete()
+.type("I feel like I wanna redesign this page.", { delay: 0 })
+.pause(7000)
 .delete()
 
 .go();
